@@ -16,8 +16,9 @@ When using the background dev server: `astro dev stop`, `astro dev status`, `ast
 
 ## Deployment
 
-Pushes to `main` or `landing` build and deploy `dist/` to GitHub Pages via
-`.github/workflows/deploy.yml`.
+Pushes to `main` build and deploy `dist/` to GitHub Pages via
+`.github/workflows/deploy.yml`. A manual run (`workflow_dispatch`) can deploy any
+branch from the Actions tab.
 
 One-time setup: in the repository settings, set **Pages → Source** to **GitHub Actions**.
 
