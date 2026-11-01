@@ -1,0 +1,35 @@
+---
+import SectionHeading from './SectionHeading.astro';
+import ServiceCard from './ServiceCard.astro';
+import { site } from '../data/site';
+
+const { geointelligence } = site;
+---
+
+<section class="section" id="geointelligence" aria-labelledby="geointelligence-title">
+	<div class="container">
+		<SectionHeading
+			id="geointelligence-title"
+			eyebrow={geointelligence.eyebrow}
+			title={geointelligence.title}
+			lead={geointelligence.lead}
+		/>
+
+		<div class="grid">
+			{
+				geointelligence.services.map((service, index) => (
+					<ServiceCard
+						index={String(index + 1).padStart(2, '0')}
+						title={service.title}
+						description={service.description}
+						delay={index * 80}
+					/>
+				))
+			}
+		</div>
+
+		<ul class="pills" data-reveal>
+			{geointelligence.useCases.map((useCase) => <li>{useCase}</li>)}
+		</ul>
+	</div>
+</section>

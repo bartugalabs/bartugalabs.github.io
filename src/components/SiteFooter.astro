@@ -1,0 +1,46 @@
+---
+import Brand from './Brand.astro';
+import { site } from '../data/site';
+
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+	<div class="container footer-grid">
+		<div class="footer-brand">
+			<Brand />
+			<p>{site.tagline}</p>
+		</div>
+
+		<nav class="footer-col" aria-label="Services">
+			<h2>Services</h2>
+			<ul>
+				{
+					site.nav
+						.filter((item) => item.href !== '#contact')
+						.map((item) => (
+							<li>
+								<a href={item.href}>{item.label}</a>
+							</li>
+						))
+				}
+			</ul>
+		</nav>
+
+		<nav class="footer-col" aria-label="Connect">
+			<h2>Connect</h2>
+			<ul>
+				<li><a href={site.contactHref}>{site.email}</a></li>
+				<li>
+					<a href={site.github} rel="noopener noreferrer" target="_blank">GitHub</a>
+				</li>
+				<li><a href="#contact">Start a conversation</a></li>
+			</ul>
+		</nav>
+	</div>
+
+	<div class="container footer-bottom">
+		<p>© {year} {site.name}. All rights reserved.</p>
+		<a href="#top">Back to top ↑</a>
+	</div>
+</footer>

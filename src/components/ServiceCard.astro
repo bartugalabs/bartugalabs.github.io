@@ -1,0 +1,16 @@
+---
+interface Props {
+	index: string;
+	title: string;
+	description: string;
+	delay?: number;
+}
+
+const { index, title, description, delay = 0 } = Astro.props;
+---
+
+<article class="card" data-reveal style={`--reveal-delay: ${delay}ms`}>
+	<span class="card-index">{index}</span>
+	<h3>{title}</h3>
+	<p>{description}</p>
+</article>

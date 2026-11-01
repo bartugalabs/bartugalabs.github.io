@@ -1,0 +1,35 @@
+---
+import SectionHeading from './SectionHeading.astro';
+import ServiceCard from './ServiceCard.astro';
+import { site } from '../data/site';
+
+const { cybersecurity } = site;
+---
+
+<section class="section" id="cybersecurity" aria-labelledby="cybersecurity-title">
+	<div class="container">
+		<SectionHeading
+			id="cybersecurity-title"
+			eyebrow={cybersecurity.eyebrow}
+			title={cybersecurity.title}
+			lead={cybersecurity.lead}
+		/>
+
+		<div class="grid">
+			{
+				cybersecurity.services.map((service, index) => (
+					<ServiceCard
+						index={String(index + 1).padStart(2, '0')}
+						title={service.title}
+						description={service.description}
+						delay={index * 80}
+					/>
+				))
+			}
+		</div>
+
+		<ul class="checklist" data-reveal>
+			{cybersecurity.outcomes.map((outcome) => <li>{outcome}</li>)}
+		</ul>
+	</div>
+</section>

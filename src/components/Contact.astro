@@ -1,0 +1,47 @@
+---
+import SectionHeading from './SectionHeading.astro';
+import { site } from '../data/site';
+
+const { contact } = site;
+---
+
+<section class="section" id="contact" aria-labelledby="contact-title">
+	<div class="container">
+		<div class="contact-panel">
+			<div>
+				<SectionHeading
+					id="contact-title"
+					eyebrow={contact.eyebrow}
+					title={contact.title}
+				/>
+				<p class="contact-copy">{contact.copy}</p>
+			</div>
+
+			<div class="contact-card" data-reveal>
+				<p class="contact-label">{contact.label}</p>
+				<a class="button-primary contact-email" href={site.contactHref}>
+					<span>{site.email}</span>
+					<svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+						<path
+							d="M3 8h10M9 4l4 4-4 4"
+							stroke="currentColor"
+							stroke-width="1.5"
+							stroke-linecap="round"
+							stroke-linejoin="round"></path>
+					</svg>
+				</a>
+
+				<dl class="contact-meta">
+					{
+						contact.details.map((detail) => (
+							<div>
+								<dt>{detail.label}</dt>
+								<dd>{detail.value}</dd>
+							</div>
+						))
+					}
+				</dl>
+			</div>
+		</div>
+	</div>
+</section>
