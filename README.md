@@ -1,46 +1,28 @@
-# Astro Starter Kit: Basics
+# Bartuga
+
+Minimal landing page for [bartugalabs.github.io](https://bartugalabs.github.io), built with
+[Astro](https://astro.build).
+
+## Development
 
 ```sh
-npm create astro@latest -- --template basics
+npm install
+npm run dev      # starts the dev server in the background
+npm run build    # builds the site to ./dist/
+npm run preview  # previews the production build
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+When using the background dev server: `astro dev stop`, `astro dev status`, `astro dev logs`.
 
-## 🚀 Project Structure
+## Deployment
 
-Inside of your Astro project, you'll see the following folders and files:
+Pushes to `main` build and deploy `dist/` to GitHub Pages via
+`.github/workflows/deploy.yml`. A manual run (`workflow_dispatch`) can deploy any
+branch from the Actions tab.
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
-```
+One-time setup: in the repository settings, set **Pages → Source** to **GitHub Actions**.
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## Search indexing
 
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+The site is intentionally excluded from search engines: `public/robots.txt` disallows all
+crawlers and the layout sets `noindex, nofollow` meta tags.
