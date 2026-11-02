@@ -1,7 +1,7 @@
 ---
 import { europeMap } from '../data/europe';
 
-const { viewBox, landPath, markers } = europeMap;
+const { viewBox, landPath } = europeMap;
 ---
 
 <div class="europe-map">
@@ -13,8 +13,5 @@ const { viewBox, landPath, markers } = europeMap;
 		focusable="false"
 	>
 		<path class="map-land" d={landPath}></path>
-		<g class="map-points">
-			{markers.map(({ x, y }) => <circle class="map-dot" cx={x} cy={y} r="2.6" />)}
-		</g>
 	</svg>
 </div>
