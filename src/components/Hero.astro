@@ -1,4 +1,5 @@
 ---
+import EuropeMap from './EuropeMap.astro';
 import { site } from '../data/site';
 
 const { hero } = site;
@@ -49,23 +50,7 @@ const { hero } = site;
 		</div>
 
 		<div class="hero-visual" aria-hidden="true">
-			<div class="radar">
-				<div class="radar-rings"></div>
-				<div class="radar-cross"></div>
-				<div class="radar-sweep"></div>
-				<span class="radar-dot radar-dot--a"></span>
-				<span class="radar-dot radar-dot--b"></span>
-				<span class="radar-dot radar-dot--c"></span>
-				<span class="radar-core"></span>
-			</div>
-			<div class="radar-tag radar-tag--a">
-				<span>Signal</span>
-				<strong>Clear</strong>
-			</div>
-			<div class="radar-tag radar-tag--b">
-				<span>Surface</span>
-				<strong>Mapped</strong>
-			</div>
+			<EuropeMap />
 		</div>
 	</div>
 </section>

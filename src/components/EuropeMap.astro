@@ -1,0 +1,20 @@
+---
+import { europeMap } from '../data/europe';
+
+const { viewBox, landPath, markers } = europeMap;
+---
+
+<div class="europe-map">
+	<svg
+		class="map-svg"
+		viewBox={viewBox}
+		preserveAspectRatio="xMidYMid meet"
+		role="presentation"
+		focusable="false"
+	>
+		<path class="map-land" d={landPath}></path>
+		<g class="map-points">
+			{markers.map(({ x, y }) => <circle class="map-dot" cx={x} cy={y} r="2.6" />)}
+		</g>
+	</svg>
+</div>
