@@ -38,11 +38,11 @@ export const site = {
 	] satisfies NavItem[],
 
 	hero: {
-		eyebrow: 'Cybersecurity · Ethical hacking · Geointelligence',
+		eyebrow: 'Cybersecurity · Pentesting · Geointelligence',
 		titleLead: 'Security and ',
 		titleAccent: 'spatial intelligence',
-		titleTail: ', engineered.',
-		lead: 'Bartuga helps organisations defend their systems, test their resilience, and turn geospatial data into decisions they can act on.',
+		titleTail: '.',
+		lead: 'We defend systems, test resilience, and turn spatial data into decisions.',
 		primaryCta: 'Book a review',
 		secondaryCta: 'See capabilities',
 	},
