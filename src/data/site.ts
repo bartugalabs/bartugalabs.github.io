@@ -43,8 +43,8 @@ export const site = {
 		titleAccent: 'spatial intelligence',
 		titleTail: ', engineered.',
 		lead: 'Bartuga helps organisations defend their systems, test their resilience, and turn geospatial data into decisions they can act on.',
-		primaryCta: 'Book a security review',
-		secondaryCta: 'Explore capabilities',
+		primaryCta: 'Book a review',
+		secondaryCta: 'See capabilities',
 	},
 
 	cybersecurity: {
