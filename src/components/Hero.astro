@@ -12,8 +12,9 @@ const { hero } = site;
 	</div>
 
 	<div class="container hero-inner">
+		<p class="eyebrow hero-eyebrow">{hero.eyebrow}</p>
+
 		<div class="hero-copy">
-			<p class="eyebrow">{hero.eyebrow}</p>
 			<h1 id="hero-title">
 				{hero.titleLead}<span class="accent">{hero.titleAccent}</span>{hero.titleTail}
 			</h1>
@@ -43,10 +44,6 @@ const { hero } = site;
 					</svg>
 				</a>
 			</div>
-
-			<ul class="hero-meta">
-				{hero.meta.map((item) => <li>{item}</li>)}
-			</ul>
 		</div>
 
 		<div class="hero-visual" aria-hidden="true">

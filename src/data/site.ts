@@ -45,7 +45,6 @@ export const site = {
 		lead: 'Bartuga helps organisations defend their systems, test their resilience, and turn geospatial data into decisions they can act on.',
 		primaryCta: 'Book a security review',
 		secondaryCta: 'Explore capabilities',
-		meta: ['Authorised engagements', 'Confidential reporting', 'Evidence-led findings'],
 	},
 
 	cybersecurity: {
