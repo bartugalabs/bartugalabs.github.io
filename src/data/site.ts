@@ -41,7 +41,7 @@ export const site = {
 		eyebrow: 'Cybersecurity · Pentesting · Geointelligence',
 		titleLead: 'Security and ',
 		titleAccent: 'spatial intelligence',
-		titleTail: '.',
+		titleTail: '',
 		lead: 'We defend systems, test resilience, and turn spatial data into decisions.',
 		primaryCta: 'Book a review',
 		secondaryCta: 'See capabilities',
