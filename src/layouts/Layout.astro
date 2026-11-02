@@ -51,6 +51,7 @@ const organisation = {
 
 		<Font cssVariable="--font-heading" preload={[{ weight: 600, subset: 'latin' }]} />
 		<Font cssVariable="--font-body" preload={[{ weight: 400, subset: 'latin' }]} />
+		<Font cssVariable="--font-mono" preload={[{ weight: 500, subset: 'latin' }]} />
 
 		<script is:inline>
 			document.documentElement.classList.add('js');
@@ -94,6 +95,27 @@ const organisation = {
 			}
 
 			document.documentElement.classList.add('reveal-ready');
+
+			// Smooth scrolling for same-page anchor links (nav, back-to-top, hero CTAs).
+			document.addEventListener('click', (event) => {
+				const link = (event.target as HTMLElement).closest<HTMLAnchorElement>('a[href^="#"]');
+				if (!link) return;
+				// The skip-link needs native jump + focus behaviour for accessibility.
+				if (link.matches('.skip-link')) return;
+				if (event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+
+				const href = link.getAttribute('href');
+				if (!href || href === '#') return;
+				const target = document.getElementById(href.slice(1));
+				if (!target) return;
+
+				event.preventDefault();
+				target.scrollIntoView({
+					behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
+					block: 'start',
+				});
+				if (location.hash !== href) history.pushState(null, '', href);
+			});
 		</script>
 	</body>
 </html>

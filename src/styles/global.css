@@ -171,25 +171,23 @@ a:hover {
 
 .eyebrow {
 	display: flex;
-	align-items: center;
-	gap: 0.6rem;
+	align-items: baseline;
+	gap: 0.35rem;
 	margin: 0;
 	color: var(--primary);
-	font-size: 0.72rem;
-	font-weight: 600;
-	letter-spacing: 0.16em;
-	text-transform: uppercase;
+	font-family: var(--font-mono, 'SFMono-Regular', Menlo, ui-monospace, monospace);
+	font-size: 0.78rem;
+	font-weight: 500;
+	letter-spacing: 0.1em;
 }
 
 .eyebrow::before {
-	content: '';
+	content: '~/';
 	flex: none;
-	width: 0.4rem;
-	height: 0.4rem;
-	border-radius: 50%;
-	background: var(--primary);
-	box-shadow: 0 0 0 4px rgb(var(--primary-rgb) / 12%);
+	color: var(--primary-hover);
 }
+
+
 
 .lead {
 	max-width: 46rem;
@@ -983,10 +981,7 @@ a:hover {
 @media (max-width: 640px) {
 	.hero-eyebrow {
 		align-items: flex-start;
-	}
-
-	.hero-eyebrow::before {
-		margin-top: 0.42em;
+		gap: 0.3rem;
 	}
 
 	.hero-visual {
