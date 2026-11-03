@@ -558,8 +558,8 @@ a:hover {
 	border: 1px solid var(--border);
 	border-radius: calc(var(--radius) * 1.2);
 	background:
-		radial-gradient(120% 140% at 0% 0%, rgb(var(--primary-rgb) / 9%), transparent 50%),
-		linear-gradient(180deg, rgb(var(--surface-rgb) / 70%), rgb(var(--surface-rgb) / 35%));
+		radial-gradient(120% 140% at 0% 0%, rgb(var(--primary-rgb) / 10%), transparent 50%),
+		linear-gradient(180deg, rgb(var(--surface-rgb) / 85%), rgb(var(--surface-rgb) / 45%));
 }
 
 .principles-panel .section-head {
@@ -568,7 +568,7 @@ a:hover {
 }
 
 .principles-panel h2 {
-	font-size: clamp(1.45rem, 2.6vw, 1.9rem);
+	font-size: clamp(1.5rem, 3vw, 2.2rem);
 }
 
 .principles-intro .lead {
@@ -620,15 +620,16 @@ a:hover {
 }
 
 .principle-body h3 {
-	font-size: 0.95rem;
-	letter-spacing: -0.005em;
+	font-size: 1.05rem;
+	font-weight: 700;
+	letter-spacing: -0.01em;
 }
 
 .principle-body p {
-	margin-top: 0.15rem;
+	margin-top: 0.2rem;
 	color: var(--text-muted);
-	font-size: 0.87rem;
-	line-height: 1.5;
+	font-size: 0.88rem;
+	line-height: 1.55;
 }
 
 .principle-body a {
@@ -1057,10 +1058,6 @@ a:hover {
 	.principles-panel {
 		grid-template-columns: 1fr;
 		gap: 1.25rem;
-	}
-
-	.principles-list {
-		gap: 0;
 	}
 
 	.contact-panel {
