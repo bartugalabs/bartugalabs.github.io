@@ -117,8 +117,8 @@ export const site = {
 
 	cybersecurity: {
 		eyebrow: '01 — Cybersecurity',
-		title: 'Defensive depth, built for real operations.',
-		lead: 'We map your attack surface, close the gaps that matter, and leave your team with controls it can operate day to day.',
+		title: 'Defence that holds.',
+		lead: 'Gaps found, risks ranked, fixes shipped.',
 		services: [
 			{
 				title: 'Security assessments',
@@ -145,8 +145,8 @@ export const site = {
 
 	pentesting: {
 		eyebrow: '02 — Pentesting',
-		title: 'Authorised testing, front to back.',
-		lead: 'Every engagement follows a written scope, a documented method and a report your engineers can act on.',
+		title: 'Proof over promises.',
+		lead: 'Authorised attacks. Clear evidence. Verified fixes.',
 		steps: [
 			{
 				title: 'Scoping & rules of engagement',
@@ -180,8 +180,8 @@ export const site = {
 
 	geointelligence: {
 		eyebrow: '03 — Geointelligence',
-		title: 'Geospatial context for better decisions.',
-		lead: 'From satellite imagery to operational maps, we turn spatial data into answers your team can use.',
+		title: 'Terrain, made legible.',
+		lead: 'Imagery and maps, turned into decisions.',
 		services: [
 			{
 				title: 'GIS analysis & mapping',
