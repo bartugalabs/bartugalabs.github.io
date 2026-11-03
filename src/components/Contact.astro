@@ -2,7 +2,7 @@
 import SectionHeading from './SectionHeading.astro';
 import { site } from '../data/site';
 
-const { contact } = site;
+const { contact, company } = site;
 ---
 
 <section class="section" id="contact" aria-labelledby="contact-title">
@@ -15,6 +15,19 @@ const { contact } = site;
 					title={contact.title}
 				/>
 				<p class="contact-copy">{contact.copy}</p>
+
+				<div class="contact-map" data-reveal>
+					<iframe
+						class="contact-map-iframe"
+						src={company.map.embedUrl}
+						title="OpenStreetMap location for {company.legalName}"
+						loading="lazy"
+						referrerpolicy="no-referrer"
+					></iframe>
+					<a class="contact-map-link" href={company.map.link} target="_blank" rel="noopener noreferrer">
+						View larger map&nbsp;&#8599;
+					</a>
+				</div>
 			</div>
 
 			<div class="contact-card" data-reveal>
@@ -30,6 +43,18 @@ const { contact } = site;
 							stroke-linejoin="round"></path>
 					</svg>
 				</a>
+
+				<address class="contact-address">
+					<strong>{company.legalName}</strong>
+					<span>{company.street}</span>
+					<span>{company.postalCode} {company.city}</span>
+					<span>{company.country}</span>
+					<a href={company.map.link} target="_blank" rel="noopener noreferrer">
+						Open in OpenStreetMap&nbsp;&#8599;
+					</a>
+				</address>
+
+				<p class="contact-vat">{company.vatLabel}: {company.vatId}</p>
 
 				<dl class="contact-meta">
 					{

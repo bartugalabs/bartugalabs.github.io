@@ -18,6 +18,22 @@ export interface ContactDetail {
 	value: string;
 }
 
+export interface CompanyInfo {
+	legalName: string;
+	street: string;
+	postalCode: string;
+	city: string;
+	country: string;
+	countryCode: string;
+	vatId: string;
+	vatLabel: string;
+	map: {
+		embedUrl: string;
+		link: string;
+		label: string;
+	};
+}
+
 export interface Principle {
 	icon: 'eu' | 'retention' | 'opensource';
 	title: string;
@@ -38,6 +54,25 @@ export const site = {
 	github: githubUrl,
 	tagline:
 		'Cybersecurity, ethical hacking and geointelligence for organisations that need clarity.',
+
+	// TODO(before-launch): Replace placeholder address and VAT with the real details.
+	company: {
+		// TODO(before-launch): Replace placeholder address, VAT and map coordinates with real details.
+		legalName: 'Bartuga s.r.o.',
+		street: 'Václavské náměstí 1',
+		postalCode: '110 00',
+		city: 'Praha 1',
+		country: 'Czech Republic',
+		countryCode: 'CZ',
+		vatId: 'CZ00000000',
+		vatLabel: 'VAT ID',
+		map: {
+			embedUrl:
+				'https://www.openstreetmap.org/export/embed.html?bbox=14.4100%2C50.0770%2C14.4300%2C50.0970&layer=mapnik&marker=50.0870%2C14.4200',
+			link: 'https://www.openstreetmap.org/?mlat=50.0870&mlon=14.4200#map=15/50.0870/14.4200',
+			label: 'Prague, Czech Republic',
+		},
+	} satisfies CompanyInfo,
 
 	nav: [
 		{ label: 'Cybersecurity', href: '#cybersecurity' },

@@ -15,14 +15,25 @@ const {
 
 const canonical = new URL(Astro.url.pathname, Astro.site ?? site.url);
 
+const { company } = site;
+
 const organisation = {
 	'@context': 'https://schema.org',
 	'@type': 'Organization',
 	name: site.name,
+	legalName: company.legalName,
 	url: site.url,
 	email: site.email,
 	description: site.description,
 	sameAs: [site.github],
+	vatID: company.vatId,
+	address: {
+		'@type': 'PostalAddress',
+		streetAddress: company.street,
+		postalCode: company.postalCode,
+		addressLocality: company.city,
+		addressCountry: company.countryCode,
+	},
 };
 ---
 
