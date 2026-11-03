@@ -18,6 +18,20 @@ export interface ContactDetail {
 	value: string;
 }
 
+export interface ContactEmail {
+	label: string;
+	address: string;
+	href: string;
+	provider?: 'proton';
+}
+
+export interface ProtonBadge {
+	label: string;
+	href: string;
+	logo: string;
+	logoAlt: string;
+}
+
 export interface CompanyInfo {
 	legalName: string;
 	street: string;
@@ -48,9 +62,8 @@ export const site = {
 	url: 'https://bartugalabs.github.io',
 	description:
 		'Bartuga delivers cybersecurity assessments, authorised penetration testing and geospatial intelligence — helping organisations defend their systems and act on spatial data.',
-	// Replace this placeholder with the real address before launch.
-	email: 'hello@bartuga.com',
-	contactHref: 'mailto:hello@bartuga.com?subject=Project%20enquiry',
+	email: 'port@bartuga.com',
+	contactHref: 'mailto:port@bartuga.com?subject=Project%20enquiry',
 	github: githubUrl,
 	tagline:
 		'Cybersecurity, ethical hacking and geointelligence for organisations that need clarity.',
@@ -207,6 +220,25 @@ export const site = {
 		title: "Tell us what you're defending.",
 		copy: "Share the system, the question or the dataset you're working with. We'll respond with a clear next step — not a sales sequence.",
 		label: 'Start a conversation',
+		emails: [
+			{
+				label: 'General enquiries',
+				address: 'port@bartuga.com',
+				href: 'mailto:port@bartuga.com?subject=Project%20enquiry',
+			},
+			{
+				label: 'Proton Mail',
+				address: 'bartuga@proton.me',
+				href: 'mailto:bartuga@proton.me?subject=Project%20enquiry',
+				provider: 'proton',
+			},
+		] satisfies ContactEmail[],
+		protonBadge: {
+			label: 'Powered by',
+			href: 'https://proton.me/mail',
+			logo: '/images/proton-wordmark-dark.svg',
+			logoAlt: 'Proton',
+		} satisfies ProtonBadge,
 		details: [
 			{ label: 'Response time', value: 'Within two business days' },
 			{ label: 'Engagements', value: 'Remote worldwide · on-site by arrangement' },

@@ -3,7 +3,7 @@ import Brand from './Brand.astro';
 import { site } from '../data/site';
 
 const year = new Date().getFullYear();
-const { company } = site;
+const { company, contact } = site;
 ---
 
 <footer class="site-footer">
@@ -31,7 +31,11 @@ const { company } = site;
 		<nav class="footer-col" aria-label="Connect">
 			<h2>Connect</h2>
 			<ul>
-				<li><a href={site.contactHref}>{site.email}</a></li>
+				{
+					contact.emails.map((email) => (
+						<li><a href={email.href}>{email.address}</a></li>
+					))
+				}
 				<li>
 					<a href={site.github} rel="noopener noreferrer" target="_blank">GitHub</a>
 				</li>

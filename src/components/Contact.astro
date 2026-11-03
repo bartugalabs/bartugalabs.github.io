@@ -3,6 +3,7 @@ import SectionHeading from './SectionHeading.astro';
 import { site } from '../data/site';
 
 const { contact, company } = site;
+const { emails, protonBadge } = contact;
 ---
 
 <section class="section" id="contact" aria-labelledby="contact-title">
@@ -32,17 +33,39 @@ const { contact, company } = site;
 
 			<div class="contact-card" data-reveal>
 				<p class="contact-label">{contact.label}</p>
-				<a class="button-primary contact-email" href={site.contactHref}>
-					<span>{site.email}</span>
-					<svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-						<path
-							d="M3 8h10M9 4l4 4-4 4"
-							stroke="currentColor"
-							stroke-width="1.5"
-							stroke-linecap="round"
-							stroke-linejoin="round"></path>
-					</svg>
-				</a>
+
+				<div class="contact-emails">
+					{
+						emails.map((email) => (
+							<a
+								class={email.provider === 'proton' ? 'button-secondary contact-email' : 'button-primary contact-email'}
+								href={email.href}
+							>
+								<span>{email.address}</span>
+								<svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+									<path
+										d="M3 8h10M9 4l4 4-4 4"
+										stroke="currentColor"
+										stroke-width="1.5"
+										stroke-linecap="round"
+										stroke-linejoin="round"></path>
+								</svg>
+							</a>
+						))
+					}
+
+					<a class="proton-badge" href={protonBadge.href} target="_blank" rel="noopener noreferrer">
+						<span class="proton-badge-label">{protonBadge.label}</span>
+						<img
+							class="proton-badge-logo"
+							src={protonBadge.logo}
+							alt={protonBadge.logoAlt}
+							width="99"
+							height="32"
+							loading="lazy"
+						/>
+					</a>
+				</div>
 
 				<address class="contact-address">
 					<strong>{company.legalName}</strong>

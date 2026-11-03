@@ -909,6 +909,44 @@ a:hover {
 	word-break: break-word;
 }
 
+.contact-emails {
+	display: grid;
+	gap: 0.5rem;
+	margin-top: 0.5rem;
+}
+
+.contact-emails .contact-email {
+	margin-top: 0;
+}
+
+/* --- Proton badge --- */
+
+.proton-badge {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.4rem;
+	margin-top: 0.35rem;
+	text-decoration: none;
+	color: inherit;
+	transition: opacity 0.2s ease;
+}
+
+.proton-badge:hover {
+	opacity: 0.85;
+}
+
+.proton-badge-label {
+	color: var(--text-muted);
+	font-size: 0.72rem;
+	letter-spacing: 0.05em;
+}
+
+.proton-badge-logo {
+	display: block;
+	height: 1rem;
+	width: auto;
+}
+
 .contact-meta {
 	display: grid;
 	gap: 1rem;
@@ -939,7 +977,9 @@ a:hover {
 .contact-address {
 	display: grid;
 	gap: 0.25rem;
-	margin-top: 1rem;
+	margin-top: 1.5rem;
+	padding-top: 1.5rem;
+	border-top: 1px solid var(--line);
 	font-size: 0.85rem;
 	line-height: 1.5;
 }
