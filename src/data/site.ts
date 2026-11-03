@@ -18,6 +18,15 @@ export interface ContactDetail {
 	value: string;
 }
 
+export interface Principle {
+	icon: 'eu' | 'retention' | 'opensource';
+	title: string;
+	description: string;
+	link?: { label: string; href: string };
+}
+
+const githubUrl = 'https://github.com/bartugalabs';
+
 export const site = {
 	name: 'Bartuga',
 	url: 'https://bartugalabs.github.io',
@@ -26,7 +35,7 @@ export const site = {
 	// Replace this placeholder with the real address before launch.
 	email: 'hello@bartuga.com',
 	contactHref: 'mailto:hello@bartuga.com?subject=Project%20enquiry',
-	github: 'https://github.com/bartugalabs',
+	github: githubUrl,
 	tagline:
 		'Cybersecurity, ethical hacking and geointelligence for organisations that need clarity.',
 
@@ -45,6 +54,30 @@ export const site = {
 		lead: 'We defend systems, test resilience, and turn spatial data into decisions.',
 		primaryCta: 'Book a review',
 		secondaryCta: 'See capabilities',
+	},
+
+	principles: {
+		eyebrow: 'Principles',
+		title: 'European by design. Private by default.',
+		lead: 'An EU-based team, zero retention by default, and open source at the core.',
+		items: [
+			{
+				icon: 'eu',
+				title: 'EU jurisdiction',
+				description: 'Data and engagements stay under EU law.',
+			},
+			{
+				icon: 'retention',
+				title: 'Zero retention',
+				description: 'Client data is deleted at close-out; exceptions are agreed in writing.',
+			},
+			{
+				icon: 'opensource',
+				title: 'Open source first',
+				description: 'Open standards and tooling, so nothing is a black box.',
+				link: { label: 'GitHub', href: githubUrl },
+			},
+		] satisfies Principle[],
 	},
 
 	cybersecurity: {
