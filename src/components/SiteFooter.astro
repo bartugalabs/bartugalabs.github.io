@@ -1,0 +1,51 @@
+---
+import Brand from './Brand.astro';
+import { site } from '../data/site';
+
+const year = new Date().getFullYear();
+const { company, contact } = site;
+---
+
+<footer class="site-footer">
+	<div class="container footer-grid">
+		<div class="footer-brand">
+			<Brand />
+			<p>{site.tagline}</p>
+		</div>
+
+		<nav class="footer-col" aria-label="Services">
+			<h2>Services</h2>
+			<ul>
+				{
+					site.nav
+						.filter((item) => item.href !== '#contact')
+						.map((item) => (
+							<li>
+								<a href={item.href}>{item.label}</a>
+							</li>
+						))
+				}
+			</ul>
+		</nav>
+
+		<nav class="footer-col" aria-label="Connect">
+			<h2>Connect</h2>
+			<ul>
+				{
+					contact.emails.map((email) => (
+						<li><a href={email.href}>{email.address}</a></li>
+					))
+				}
+				<li>
+					<a href={site.github} rel="noopener noreferrer" target="_blank">GitHub</a>
+				</li>
+				<li><a href="#contact">Start a conversation</a></li>
+			</ul>
+		</nav>
+	</div>
+
+	<div class="container footer-bottom">
+		<p>© {year} {company.legalName}. All rights reserved. · {company.vatLabel}: {company.vatId}</p>
+		<a href="#top">Back to top ↑</a>
+	</div>
+</footer>

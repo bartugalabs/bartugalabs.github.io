@@ -1,0 +1,17 @@
+---
+import { europeMap } from '../data/europe';
+
+const { viewBox, landPath } = europeMap;
+---
+
+<div class="europe-map">
+	<svg
+		class="map-svg"
+		viewBox={viewBox}
+		preserveAspectRatio="xMidYMid meet"
+		role="presentation"
+		focusable="false"
+	>
+		<path class="map-land" d={landPath}></path>
+	</svg>
+</div>

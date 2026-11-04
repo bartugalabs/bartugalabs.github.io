@@ -3,26 +3,15 @@
 Minimal landing page for [bartugalabs.github.io](https://bartugalabs.github.io), built with
 [Astro](https://astro.build).
 
-## Development
+## Europe hero visual
+
+The hero map geometry is generated from Natural Earth 1:50m admin-0 country data
+([public domain](https://www.naturalearthdata.com/about/terms-of-use/)), packaged by
+[`world-atlas`](https://github.com/topojson/world-atlas) and simplified with
+[`topojson-simplify`](https://github.com/topojson/topojson-simplify). Regenerate it with:
 
 ```sh
-npm install
-npm run dev      # starts the dev server in the background
-npm run build    # builds the site to ./dist/
-npm run preview  # previews the production build
+node scripts/generate-europe-map.mjs
 ```
 
-When using the background dev server: `astro dev stop`, `astro dev status`, `astro dev logs`.
-
-## Deployment
-
-Pushes to `main` build and deploy `dist/` to GitHub Pages via
-`.github/workflows/deploy.yml`. A manual run (`workflow_dispatch`) can deploy any
-branch from the Actions tab.
-
-One-time setup: in the repository settings, set **Pages → Source** to **GitHub Actions**.
-
-## Search indexing
-
-The site is intentionally excluded from search engines: `public/robots.txt` disallows all
-crawlers and the layout sets `noindex, nofollow` meta tags.
+The generated `src/data/europe.ts` is committed, so builds do not need the data package.

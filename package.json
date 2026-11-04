@@ -13,5 +13,11 @@
   },
   "dependencies": {
     "astro": "^7.4.4"
+  },
+  "devDependencies": {
+    "d3-geo": "^3.1.1",
+    "topojson-client": "^3.1.0",
+    "topojson-simplify": "^3.0.3",
+    "world-atlas": "^2.0.2"
   }
 }
