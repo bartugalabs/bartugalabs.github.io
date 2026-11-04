@@ -115,7 +115,7 @@ export const site = {
 
 	principles: {
 		eyebrow: 'Principles',
-		title: 'European by design. Private by default.',
+		title: 'European by design, private by default',
 		lead: 'An EU-based team, zero retention by default, and open source at the core.',
 		items: [
 			{
@@ -139,7 +139,7 @@ export const site = {
 
 	cybersecurity: {
 		eyebrow: '01 — Cybersecurity',
-		title: 'Defence that holds.',
+		title: 'Defence that holds',
 		lead: 'Independent reviews for teams that need to know where they stand, and a practical path to closing the gaps.',
 		services: [
 			{
@@ -167,7 +167,7 @@ export const site = {
 
 	pentesting: {
 		eyebrow: '02 — Pentesting',
-		title: 'Proof over promises.',
+		title: 'Proof over promises',
 		lead: 'Simulated attacks against your live systems, so you learn what an adversary would find before they do.',
 		steps: [
 			{
@@ -202,7 +202,7 @@ export const site = {
 
 	geointelligence: {
 		eyebrow: '03 — Geointelligence',
-		title: 'Terrain, made legible.',
+		title: 'Terrain, made legible',
 		lead: 'We turn scattered location data into answers you can stand behind.',
 		services: [
 			{
@@ -226,7 +226,7 @@ export const site = {
 
 	contact: {
 		eyebrow: '04 — Contact',
-		title: "Tell us what's at stake.",
+		title: "Tell us what's at stake",
 		copy: "Share the system, the question or the dataset you're working with. We'll respond with a clear next step — not a sales sequence.",
 		label: 'Start a conversation',
 		emails: [
