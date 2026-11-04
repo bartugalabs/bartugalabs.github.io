@@ -28,7 +28,6 @@ export interface ContactEmail {
 export interface ProtonBadge {
 	label: string;
 	href: string;
-	logo: string;
 	logoAlt: string;
 }
 
@@ -246,7 +245,6 @@ export const site = {
 		protonBadge: {
 			label: 'Powered by',
 			href: 'https://proton.me/mail',
-			logo: '/images/proton-wordmark-dark.svg',
 			logoAlt: 'Proton',
 		} satisfies ProtonBadge,
 		details: [

@@ -315,10 +315,6 @@ a:hover {
 	align-items: center;
 	gap: 0.65rem;
 	color: var(--text);
-	font-family: var(--font-heading, 'Space Grotesk', sans-serif);
-	font-size: 1.15rem;
-	font-weight: 600;
-	letter-spacing: -0.02em;
 	text-decoration: none;
 }
 
@@ -326,8 +322,10 @@ a:hover {
 	color: var(--text);
 }
 
-.brand svg {
+.brand img {
 	flex: none;
+	width: auto;
+	height: 1.6rem;
 }
 
 .nav {
@@ -1236,6 +1234,10 @@ a:hover {
 	margin-top: 1rem;
 	color: var(--text-muted);
 	font-size: 0.9rem;
+}
+
+.footer-brand .brand img {
+	height: 2rem;
 }
 
 .footer-col h2 {
