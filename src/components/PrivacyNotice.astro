@@ -4,7 +4,6 @@ import { site } from '../data/site';
 // Informational notice, not a consent manager. If non-essential storage or
 // tracking is added later, replace this with a proper consent solution.
 const { privacy } = site;
-const noticeDaysLabel = `${privacy.noticeDays} ${privacy.noticeDays === 1 ? 'day' : 'days'}`;
 ---
 
 <aside
@@ -18,8 +17,8 @@ const noticeDaysLabel = `${privacy.noticeDays} ${privacy.noticeDays === 1 ? 'day
 >
 	<div class="container privacy-notice-inner">
 		<p>
-			No analytics or tracking cookies. One preference stored locally in your browser keeps this
-			notice hidden for {noticeDaysLabel}. <a href={`${privacy.path}#cookies`}>Privacy policy</a>
+			We care about your privacy. No tracking — see our{' '}
+			<a href={privacy.path}>privacy policy</a> for details.
 		</p>
 		<button class="privacy-notice-dismiss" type="button" data-privacy-dismiss>
 			Got it<span class="visually-hidden">, dismiss privacy notice</span>
