@@ -34,13 +34,15 @@ export interface ProtonBadge {
 
 export interface CompanyInfo {
 	legalName: string;
+	companyId: string;
 	street: string;
+	district: string;
 	postalCode: string;
 	city: string;
 	country: string;
 	countryCode: string;
-	vatId: string;
-	vatLabel: string;
+	vatId?: string;
+	vatLabel?: string;
 	map: {
 		embedUrl: string;
 		link: string;
@@ -68,24 +70,27 @@ export const site = {
 	tagline:
 		'Cybersecurity, ethical hacking and geointelligence for organisations that need clarity.',
 
-	// TODO(before-launch): Replace placeholder address and VAT with the real details.
 	company: {
-		// TODO(before-launch): Replace placeholder address, VAT and map coordinates with real details.
-		legalName: 'Bartuga s.r.o.',
-		street: 'Václavské náměstí 1',
+		legalName: 'Bartuga Labs s.r.o.',
+		companyId: '30194822',
+		street: 'Příčná 1892/4',
+		district: 'Nové Město',
 		postalCode: '110 00',
 		city: 'Praha 1',
 		country: 'Czech Republic',
 		countryCode: 'CZ',
-		vatId: 'CZ00000000',
-		vatLabel: 'VAT ID',
 		map: {
 			embedUrl:
-				'https://www.openstreetmap.org/export/embed.html?bbox=14.4100%2C50.0770%2C14.4300%2C50.0970&layer=mapnik&marker=50.0870%2C14.4200',
-			link: 'https://www.openstreetmap.org/?mlat=50.0870&mlon=14.4200#map=15/50.0870/14.4200',
-			label: 'Prague, Czech Republic',
+				'https://www.openstreetmap.org/export/embed.html?bbox=14.4128%2C50.0678%2C14.4328%2C50.0878&layer=mapnik&marker=50.0778198%2C14.4228188',
+			link: 'https://www.openstreetmap.org/?mlat=50.0778198&mlon=14.4228188#map=17/50.0778198/14.4228188',
+			label: 'Příčná 1892/4, Praha 1',
 		},
 	} satisfies CompanyInfo,
+
+	privacy: {
+		lastUpdated: '2026-11-04',
+		retentionPeriod: '[PERIOD, e.g. 2 years]',
+	},
 
 	nav: [
 		{ label: 'Cybersecurity', href: '#cybersecurity' },

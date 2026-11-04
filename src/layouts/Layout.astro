@@ -26,10 +26,11 @@ const organisation = {
 	email: site.email,
 	description: site.description,
 	sameAs: [site.github],
-	vatID: company.vatId,
+	identifier: company.companyId,
+	...(company.vatId ? { vatID: company.vatId } : {}),
 	address: {
 		'@type': 'PostalAddress',
-		streetAddress: company.street,
+		streetAddress: `${company.street}, ${company.district}`,
 		postalCode: company.postalCode,
 		addressLocality: company.city,
 		addressCountry: company.countryCode,

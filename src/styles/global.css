@@ -1040,6 +1040,98 @@ a:hover {
 	color: var(--primary-hover);
 }
 
+/* Legal / prose ----------------------------------------------------------- */
+
+.legal {
+	border-top: 0;
+}
+
+.legal-inner {
+	max-width: 52rem;
+	margin-inline: auto;
+}
+
+.legal h1 {
+	margin-top: 0.9rem;
+}
+
+.legal-meta {
+	display: grid;
+	gap: 0.75rem;
+	margin-top: 2rem;
+	padding: 1.25rem 1.5rem;
+	border: 1px solid var(--border);
+	border-radius: var(--radius);
+	background: rgb(var(--surface-rgb) / 45%);
+}
+
+.legal-meta > div {
+	display: grid;
+	gap: 0.15rem;
+}
+
+.legal-meta dt {
+	color: var(--text-muted);
+	font-size: 0.72rem;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+}
+
+.legal-meta dd {
+	margin: 0;
+	font-size: 0.92rem;
+}
+
+.legal-body {
+	margin-top: 2.5rem;
+}
+
+.legal-body h2 {
+	margin-top: 2.5rem;
+	font-size: clamp(1.35rem, 2.5vw, 1.75rem);
+}
+
+.legal-body h2:first-child {
+	margin-top: 0;
+}
+
+.legal-body h3 {
+	margin-top: 1.75rem;
+	font-size: 1.05rem;
+}
+
+.legal-body p {
+	margin-top: 0.9rem;
+	color: var(--text-muted);
+}
+
+.legal-body ul {
+	margin-top: 0.75rem;
+	padding-left: 1.25rem;
+	list-style: disc;
+}
+
+.legal-body li {
+	margin-top: 0.4rem;
+	color: var(--text-muted);
+}
+
+.legal-body li::marker {
+	color: var(--primary);
+}
+
+.legal-body strong {
+	color: var(--text);
+}
+
+.legal-updated {
+	margin-top: 2.5rem;
+	padding-top: 1.5rem;
+	border-top: 1px solid var(--line);
+	color: var(--text-muted);
+	font-size: 0.85rem;
+}
+
 /* Footer ------------------------------------------------------------------ */
 
 .site-footer {
