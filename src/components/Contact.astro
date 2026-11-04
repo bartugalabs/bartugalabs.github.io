@@ -7,7 +7,7 @@ const { contact, company } = site;
 const { emails, protonBadge } = contact;
 ---
 
-<section class="section" id="contact" aria-labelledby="contact-title">
+<section class="section" id="contact" aria-labelledby="contact-title" tabindex="-1">
 	<div class="container">
 		<div class="contact-panel">
 			<div>
@@ -27,7 +27,7 @@ const { emails, protonBadge } = contact;
 						referrerpolicy="no-referrer"
 					></iframe>
 					<a class="contact-map-link" href={company.map.link} target="_blank" rel="noopener noreferrer">
-						View larger map&nbsp;&#8599;
+						View larger map&nbsp;<span aria-hidden="true">&#8599;</span>
 					</a>
 				</div>
 			</div>
@@ -73,7 +73,7 @@ const { emails, protonBadge } = contact;
 					<span>{company.postalCode} {company.city}</span>
 					<span>{company.country}</span>
 					<a href={company.map.link} target="_blank" rel="noopener noreferrer">
-						Open in OpenStreetMap&nbsp;&#8599;
+						Open in OpenStreetMap&nbsp;<span aria-hidden="true">&#8599;</span>
 					</a>
 				</address>
 
