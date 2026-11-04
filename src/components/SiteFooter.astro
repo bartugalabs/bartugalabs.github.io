@@ -3,7 +3,7 @@ import Brand from './Brand.astro';
 import { site } from '../data/site';
 
 const year = new Date().getFullYear();
-const { company, contact } = site;
+const { company, contact, privacy } = site;
 const isHome = Astro.url.pathname === '/';
 const sectionHref = (href: string) => (isHome ? href : `/${href}`);
 ---
@@ -42,7 +42,7 @@ const sectionHref = (href: string) => (isHome ? href : `/${href}`);
 					<a href={site.github} rel="noopener noreferrer" target="_blank">GitHub</a>
 				</li>
 				<li><a href={sectionHref('#contact')}>Start a conversation</a></li>
-				<li><a href="/privacy-policy">Privacy Policy</a></li>
+				<li><a href={privacy.path}>Privacy Policy</a></li>
 			</ul>
 		</nav>
 	</div>

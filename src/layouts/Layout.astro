@@ -1,6 +1,7 @@
 ---
 import { Font } from 'astro:assets';
 import '../styles/global.css';
+import PrivacyNotice from '../components/PrivacyNotice.astro';
 import { site } from '../data/site';
 
 interface Props {
@@ -84,6 +85,7 @@ const organisation = {
 	<body id="top">
 		<a class="skip-link" href="#main">Skip to content</a>
 		<slot />
+		<PrivacyNotice />
 		<script>
 			const reveals = document.querySelectorAll<HTMLElement>('[data-reveal]');
 			const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;

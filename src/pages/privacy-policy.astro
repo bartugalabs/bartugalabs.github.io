@@ -5,6 +5,7 @@ import SiteHeader from '../components/SiteHeader.astro';
 import { site } from '../data/site';
 
 const { company, privacy } = site;
+const noticeDaysLabel = `${privacy.noticeDays} ${privacy.noticeDays === 1 ? 'day' : 'days'}`;
 const lastUpdated = new Date(`${privacy.lastUpdated}T00:00:00Z`);
 const lastUpdatedLabel = new Intl.DateTimeFormat('en-GB', {
 	day: 'numeric',
@@ -97,7 +98,7 @@ const lastUpdatedLabel = new Intl.DateTimeFormat('en-GB', {
 							</li>
 						</ul>
 
-						<h2>2. Cookies and active analytics</h2>
+						<h2 id="cookies">2. Cookies, local storage and third-party content</h2>
 						<p>
 							This website does not set cookies for analytics, advertising or tracking, and does
 							not use fingerprinting or any other technology aimed at identifying users or their
@@ -105,15 +106,59 @@ const lastUpdatedLabel = new Intl.DateTimeFormat('en-GB', {
 							profiled.
 						</p>
 						<p>
-							The contact section embeds a map from OpenStreetMap. Loading the map transmits your
-							IP address and browser information to the OpenStreetMap Foundation so the map can be
-							displayed; its privacy policy applies.
+							The site stores one preference in your browser's local storage. It is not a cookie,
+							contains no identifier, and is never sent to a server.
+						</p>
+						<dl class="legal-meta">
+							<div>
+								<dt>Key</dt>
+								<dd><code>{privacy.storageKey}</code></dd>
+							</div>
+							<div>
+								<dt>Purpose</dt>
+								<dd>Remembers that you dismissed the privacy notice.</dd>
+							</div>
+							<div>
+								<dt>Content</dt>
+								<dd>A version number and an expiry timestamp. No identifier.</dd>
+							</div>
+							<div>
+								<dt>Duration</dt>
+								<dd>
+									{noticeDaysLabel}, after which the notice is shown again; or until you clear
+									site data.
+								</dd>
+							</div>
+							<div>
+								<dt>Transmission</dt>
+								<dd>Stored locally and never sent to any server.</dd>
+							</div>
+							<div>
+								<dt>Legal basis</dt>
+								<dd>
+									Strictly necessary storage for the interface preference you requested by
+									dismissing the notice (Art. 5(3) ePrivacy Directive). No consent is required.
+								</dd>
+							</div>
+						</dl>
+						<p>
+							You can delete this preference at any time through your browser's site-data
+							settings.
+						</p>
+						<p>
+							The contact section embeds a map from OpenStreetMap. The map is lazily loaded when
+							the contact section approaches the viewport; loading it transmits your IP address
+							and browser information to the OpenStreetMap Foundation so the map can be
+							displayed. Its privacy policy applies:
+							<a href="https://osmfoundation.org/wiki/Privacy_Policy" target="_blank" rel="noopener noreferrer">
+								OSMF Privacy Policy
+							</a>. <strong>Legal basis:</strong> legitimate interest in displaying the location
+							map (Art. 6(1)(f) GDPR).
 						</p>
 						<p>
 							Other than the OpenStreetMap embed, the site loads no third-party scripts or fonts
 							from external servers.
 						</p>
-						{/* TODO: when the cookie consent tool is added, describe the consent choice stored in the browser and link to "Cookie settings". */}
 
 						<h2>3. Data retention</h2>
 						<ul>

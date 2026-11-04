@@ -1124,12 +1124,97 @@ a:hover {
 	color: var(--text);
 }
 
+.legal-body code {
+	padding: 0.1em 0.35em;
+	border: 1px solid var(--line);
+	border-radius: 0.3rem;
+	background: rgb(var(--surface-rgb) / 45%);
+	font-family: var(--font-mono, monospace);
+	font-size: 0.85em;
+}
+
 .legal-updated {
 	margin-top: 2.5rem;
 	padding-top: 1.5rem;
 	border-top: 1px solid var(--line);
 	color: var(--text-muted);
 	font-size: 0.85rem;
+}
+
+/* Privacy notice ---------------------------------------------------------- */
+
+.privacy-notice {
+	position: fixed;
+	inset-inline: 0;
+	bottom: 0;
+	z-index: 80;
+	padding-block: 0.9rem calc(0.9rem + env(safe-area-inset-bottom, 0px));
+	border-top: 1px solid var(--line);
+	background: rgb(var(--surface-rgb) / 96%);
+	box-shadow: 0 -12px 32px rgb(0 0 0 / 35%);
+	backdrop-filter: blur(12px);
+}
+
+.privacy-notice[hidden] {
+	display: none;
+}
+
+.privacy-notice:not([hidden]) {
+	animation: privacy-notice-in 0.25s var(--ease) both;
+}
+
+@keyframes privacy-notice-in {
+	from {
+		transform: translateY(100%);
+	}
+
+	to {
+		transform: translateY(0);
+	}
+}
+
+.privacy-notice-inner {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1rem 1.5rem;
+}
+
+.privacy-notice p {
+	max-width: 62ch;
+	color: var(--text-muted);
+	font-size: 0.82rem;
+	line-height: 1.5;
+}
+
+.privacy-notice a {
+	color: var(--text);
+	text-underline-offset: 0.2em;
+}
+
+.privacy-notice a:hover {
+	color: var(--primary-hover);
+}
+
+.privacy-notice-dismiss {
+	flex: none;
+	padding: 0.4rem 0.75rem;
+	border: 1px solid var(--border);
+	border-radius: var(--radius-sm);
+	background: transparent;
+	color: var(--text);
+	font-size: 0.78rem;
+	font-weight: 500;
+	line-height: 1.2;
+	cursor: pointer;
+	transition:
+		border-color 0.2s var(--ease),
+		background 0.2s var(--ease);
+}
+
+.privacy-notice-dismiss:hover {
+	border-color: rgb(var(--primary-rgb) / 60%);
+	background: rgb(var(--surface-rgb) / 60%);
 }
 
 /* Footer ------------------------------------------------------------------ */
@@ -1301,12 +1386,28 @@ a:hover {
 		width: 100%;
 	}
 
+	.privacy-notice {
+		padding-block: 0.75rem calc(0.75rem + env(safe-area-inset-bottom, 0px));
+	}
+
+	.privacy-notice-inner {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 0.7rem;
+	}
+
 	.footer-grid {
 		grid-template-columns: 1fr;
 	}
 
 	.footer-bottom {
 		flex-direction: column;
+	}
+}
+
+@media print {
+	.privacy-notice {
+		display: none !important;
 	}
 }
 

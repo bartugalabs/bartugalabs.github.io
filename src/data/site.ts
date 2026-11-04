@@ -88,6 +88,11 @@ export const site = {
 	} satisfies CompanyInfo,
 
 	privacy: {
+		path: '/privacy-policy',
+		storageKey: 'bartuga.privacy',
+		// Bump when this policy changes materially so the notice is shown again.
+		storageVersion: 1,
+		noticeDays: 30,
 		lastUpdated: '2026-11-04',
 		retentionPeriod: '[PERIOD, e.g. 2 years]',
 	},
