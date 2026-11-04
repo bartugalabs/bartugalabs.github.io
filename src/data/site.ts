@@ -140,7 +140,7 @@ export const site = {
 	cybersecurity: {
 		eyebrow: '01 — Cybersecurity',
 		title: 'Defence that holds.',
-		lead: 'Gaps found, risks ranked, fixes shipped.',
+		lead: 'Independent reviews for teams that need to know where they stand, and a practical path to closing the gaps.',
 		services: [
 			{
 				title: 'Security assessments',
@@ -168,7 +168,7 @@ export const site = {
 	pentesting: {
 		eyebrow: '02 — Pentesting',
 		title: 'Proof over promises.',
-		lead: 'Authorised attacks. Clear evidence. Verified fixes.',
+		lead: 'Simulated attacks against your live systems, so you learn what an adversary would find before they do.',
 		steps: [
 			{
 				title: 'Scoping & rules of engagement',
@@ -203,7 +203,7 @@ export const site = {
 	geointelligence: {
 		eyebrow: '03 — Geointelligence',
 		title: 'Terrain, made legible.',
-		lead: 'Imagery and maps, turned into decisions.',
+		lead: 'We turn scattered location data into answers you can stand behind.',
 		services: [
 			{
 				title: 'GIS analysis & mapping',
@@ -226,7 +226,7 @@ export const site = {
 
 	contact: {
 		eyebrow: '04 — Contact',
-		title: "Tell us what you're defending.",
+		title: "Tell us what's at stake.",
 		copy: "Share the system, the question or the dataset you're working with. We'll respond with a clear next step — not a sales sequence.",
 		label: 'Start a conversation',
 		emails: [
