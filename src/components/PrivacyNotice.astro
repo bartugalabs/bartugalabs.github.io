@@ -1,0 +1,85 @@
+---
+import { site } from '../data/site';
+
+// Informational notice, not a consent manager. If non-essential storage or
+// tracking is added later, replace this with a proper consent solution.
+const { privacy } = site;
+---
+
+<aside
+	class="privacy-notice"
+	aria-label="Privacy notice"
+	data-privacy-notice
+	data-storage-key={privacy.storageKey}
+	data-storage-version={privacy.storageVersion}
+	data-notice-days={privacy.noticeDays}
+	hidden
+>
+	<div class="container privacy-notice-inner">
+		<p>
+			We care about your privacy. No tracking — see our{' '}
+			<a href={privacy.path}>privacy policy</a> for details.
+		</p>
+		<button class="privacy-notice-dismiss" type="button" data-privacy-dismiss>
+			Got it<span class="visually-hidden">, dismiss privacy notice</span>
+		</button>
+	</div>
+</aside>
+
+<script>
+	const notice = document.querySelector<HTMLElement>('[data-privacy-notice]');
+
+	if (notice) {
+		const key = notice.dataset.storageKey ?? 'bartuga.privacy';
+		const version = Number(notice.dataset.storageVersion ?? 1);
+		const days = Number(notice.dataset.noticeDays ?? 30);
+		const duration = days * 24 * 60 * 60 * 1000;
+
+		const readState = (): unknown => {
+			try {
+				const raw = localStorage.getItem(key);
+				return raw ? JSON.parse(raw) : undefined;
+			} catch {
+				return undefined;
+			}
+		};
+
+		const isValid = (state: unknown): state is { version: number; noticeUntil: number } => {
+			if (typeof state !== 'object' || state === null) return false;
+
+			const value = state as Record<string, unknown>;
+			return (
+				value.version === version &&
+				typeof value.noticeUntil === 'number' &&
+				value.noticeUntil > Date.now()
+			);
+		};
+
+		const clearState = () => {
+			try {
+				localStorage.removeItem(key);
+			} catch {
+				// Storage can be unavailable in private or restricted contexts.
+			}
+		};
+
+		if (!isValid(readState())) {
+			clearState();
+			notice.hidden = false;
+		}
+
+		notice.querySelector<HTMLButtonElement>('[data-privacy-dismiss]')?.addEventListener('click', () => {
+			try {
+				localStorage.setItem(
+					key,
+					JSON.stringify({ version, noticeUntil: Date.now() + duration }),
+				);
+			} catch {
+				// If storage is blocked, the notice still disappears for this page view.
+			}
+
+			notice.hidden = true;
+			document.querySelector<HTMLElement>('.site-header .brand')?.focus();
+		});
+	}
+</script>

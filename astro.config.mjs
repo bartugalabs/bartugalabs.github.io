@@ -1,9 +1,10 @@
 // @ts-check
 import { defineConfig, fontProviders } from 'astro/config';
+import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://bartugalabs.github.io',
+	site: 'https://bartuga.com',
 	fonts: [
 		{
 			provider: fontProviders.fontsource(),
@@ -32,5 +33,30 @@ export default defineConfig({
 			subsets: ['latin'],
 			fallbacks: ['monospace'],
 		},
+	],
+	security: {
+		csp: {
+			directives: [
+				"default-src 'self'",
+				"base-uri 'self'",
+				"object-src 'none'",
+				"form-action 'self'",
+				"img-src 'self' data:",
+				"font-src 'self'",
+				"frame-src https://www.openstreetmap.org",
+				"connect-src 'self'",
+				"manifest-src 'self'",
+				"upgrade-insecure-requests",
+			],
+			styleDirective: {
+				resources: [{ resource: "'unsafe-inline'", kind: 'attribute' }],
+			},
+		},
+	},
+	integrations: [
+		sitemap({
+			filter: (page) => !page.includes('/404'),
+			lastmod: new Date(),
+		}),
 	],
 });

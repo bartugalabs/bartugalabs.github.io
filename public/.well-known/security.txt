@@ -1,0 +1,4 @@
+Contact: mailto:port@bartuga.com
+Expires: 2027-11-05T00:00:00.000Z
+Preferred-Languages: en, cs
+Canonical: https://bartuga.com/.well-known/security.txt

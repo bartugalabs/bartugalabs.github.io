@@ -28,19 +28,20 @@ export interface ContactEmail {
 export interface ProtonBadge {
 	label: string;
 	href: string;
-	logo: string;
 	logoAlt: string;
 }
 
 export interface CompanyInfo {
 	legalName: string;
+	companyId: string;
 	street: string;
+	district: string;
 	postalCode: string;
 	city: string;
 	country: string;
 	countryCode: string;
-	vatId: string;
-	vatLabel: string;
+	vatId?: string;
+	vatLabel?: string;
 	map: {
 		embedUrl: string;
 		link: string;
@@ -59,33 +60,41 @@ const githubUrl = 'https://github.com/bartugalabs';
 
 export const site = {
 	name: 'Bartuga',
-	url: 'https://bartugalabs.github.io',
+	url: 'https://bartuga.com',
 	description:
-		'Bartuga delivers cybersecurity assessments, authorised penetration testing and geospatial intelligence — helping organisations defend their systems and act on spatial data.',
+		'Bartuga provides cybersecurity assessments, penetration testing and geospatial intelligence from Prague for organisations across the EU and worldwide.',
 	email: 'port@bartuga.com',
 	contactHref: 'mailto:port@bartuga.com?subject=Project%20enquiry',
 	github: githubUrl,
 	tagline:
 		'Cybersecurity, ethical hacking and geointelligence for organisations that need clarity.',
 
-	// TODO(before-launch): Replace placeholder address and VAT with the real details.
 	company: {
-		// TODO(before-launch): Replace placeholder address, VAT and map coordinates with real details.
-		legalName: 'Bartuga s.r.o.',
-		street: 'Václavské náměstí 1',
+		legalName: 'Bartuga Labs s.r.o.',
+		companyId: '30194822',
+		street: 'Příčná 1892/4',
+		district: 'Nové Město',
 		postalCode: '110 00',
 		city: 'Praha 1',
 		country: 'Czech Republic',
 		countryCode: 'CZ',
-		vatId: 'CZ00000000',
-		vatLabel: 'VAT ID',
 		map: {
 			embedUrl:
-				'https://www.openstreetmap.org/export/embed.html?bbox=14.4100%2C50.0770%2C14.4300%2C50.0970&layer=mapnik&marker=50.0870%2C14.4200',
-			link: 'https://www.openstreetmap.org/?mlat=50.0870&mlon=14.4200#map=15/50.0870/14.4200',
-			label: 'Prague, Czech Republic',
+				'https://www.openstreetmap.org/export/embed.html?bbox=14.4128%2C50.0678%2C14.4328%2C50.0878&layer=mapnik&marker=50.0778198%2C14.4228188',
+			link: 'https://www.openstreetmap.org/?mlat=50.0778198&mlon=14.4228188#map=17/50.0778198/14.4228188',
+			label: 'Příčná 1892/4, Praha 1',
 		},
 	} satisfies CompanyInfo,
+
+	privacy: {
+		path: '/privacy-policy',
+		storageKey: 'bartuga.privacy',
+		// Bump when this policy changes materially so the notice is shown again.
+		storageVersion: 1,
+		noticeDays: 30,
+		lastUpdated: '2026-11-04',
+		retentionPeriod: '[PERIOD, e.g. 2 years]',
+	},
 
 	nav: [
 		{ label: 'Cybersecurity', href: '#cybersecurity' },
@@ -96,7 +105,7 @@ export const site = {
 
 	hero: {
 		eyebrow: 'Cybersecurity · Pentesting · Geointelligence',
-		titleLead: 'Security and ',
+		titleLead: 'Cybersecurity, pentesting and ',
 		titleAccent: 'spatial intelligence',
 		titleTail: '',
 		lead: 'We defend systems, test resilience, and turn spatial data into decisions.',
@@ -106,7 +115,7 @@ export const site = {
 
 	principles: {
 		eyebrow: 'Principles',
-		title: 'European by design. Private by default.',
+		title: 'European by design, private by default',
 		lead: 'An EU-based team, zero retention by default, and open source at the core.',
 		items: [
 			{
@@ -130,8 +139,8 @@ export const site = {
 
 	cybersecurity: {
 		eyebrow: '01 — Cybersecurity',
-		title: 'Defence that holds.',
-		lead: 'Gaps found, risks ranked, fixes shipped.',
+		title: 'Cybersecurity that holds',
+		lead: 'Independent reviews for teams that need to know where they stand, and a practical path to closing the gaps.',
 		services: [
 			{
 				title: 'Security assessments',
@@ -158,8 +167,8 @@ export const site = {
 
 	pentesting: {
 		eyebrow: '02 — Pentesting',
-		title: 'Proof over promises.',
-		lead: 'Authorised attacks. Clear evidence. Verified fixes.',
+		title: 'Pentesting: proof over promises',
+		lead: 'Simulated attacks against your live systems, so you learn what an adversary would find before they do.',
 		steps: [
 			{
 				title: 'Scoping & rules of engagement',
@@ -193,8 +202,8 @@ export const site = {
 
 	geointelligence: {
 		eyebrow: '03 — Geointelligence',
-		title: 'Terrain, made legible.',
-		lead: 'Imagery and maps, turned into decisions.',
+		title: 'Geointelligence: terrain, made legible',
+		lead: 'We turn scattered location data into answers you can stand behind.',
 		services: [
 			{
 				title: 'GIS analysis & mapping',
@@ -217,7 +226,7 @@ export const site = {
 
 	contact: {
 		eyebrow: '04 — Contact',
-		title: "Tell us what you're defending.",
+		title: "Tell us what's at stake",
 		copy: "Share the system, the question or the dataset you're working with. We'll respond with a clear next step — not a sales sequence.",
 		label: 'Start a conversation',
 		emails: [
@@ -236,7 +245,6 @@ export const site = {
 		protonBadge: {
 			label: 'Powered by',
 			href: 'https://proton.me/mail',
-			logo: '/images/proton-wordmark-dark.svg',
 			logoAlt: 'Proton',
 		} satisfies ProtonBadge,
 		details: [

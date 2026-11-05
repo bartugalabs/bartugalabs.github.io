@@ -3,13 +3,15 @@ import Brand from './Brand.astro';
 import { site } from '../data/site';
 
 const year = new Date().getFullYear();
-const { company, contact } = site;
+const { company, contact, privacy } = site;
+const isHome = Astro.url.pathname === '/';
+const sectionHref = (href: string) => (isHome ? href : `/${href}`);
 ---
 
 <footer class="site-footer">
 	<div class="container footer-grid">
 		<div class="footer-brand">
-			<Brand />
+			<Brand href={isHome ? '#top' : '/'} />
 			<p>{site.tagline}</p>
 		</div>
 
@@ -21,7 +23,7 @@ const { company, contact } = site;
 						.filter((item) => item.href !== '#contact')
 						.map((item) => (
 							<li>
-								<a href={item.href}>{item.label}</a>
+								<a href={sectionHref(item.href)}>{item.label}</a>
 							</li>
 						))
 				}
@@ -39,13 +41,17 @@ const { company, contact } = site;
 				<li>
 					<a href={site.github} rel="noopener noreferrer" target="_blank">GitHub</a>
 				</li>
-				<li><a href="#contact">Start a conversation</a></li>
+				<li><a href={sectionHref('#contact')}>Start a conversation</a></li>
+				<li><a href={privacy.path}>Privacy Policy</a></li>
 			</ul>
 		</nav>
 	</div>
 
 	<div class="container footer-bottom">
-		<p>© {year} {company.legalName}. All rights reserved. · {company.vatLabel}: {company.vatId}</p>
-		<a href="#top">Back to top ↑</a>
+		<p>
+			© {year} {company.legalName} All rights reserved. · Company ID (IČO): {company.companyId}
+			{company.vatId && <> · {company.vatLabel}: {company.vatId}</>}
+		</p>
+		<a href="#top">Back to top <span aria-hidden="true">↑</span></a>
 	</div>
 </footer>

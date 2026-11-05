@@ -1,0 +1,233 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import { site } from '../data/site';
+
+const { company, privacy } = site;
+const noticeDaysLabel = `${privacy.noticeDays} ${privacy.noticeDays === 1 ? 'day' : 'days'}`;
+const lastUpdated = new Date(`${privacy.lastUpdated}T00:00:00Z`);
+const lastUpdatedLabel = new Intl.DateTimeFormat('en-GB', {
+	day: 'numeric',
+	month: 'long',
+	year: 'numeric',
+	timeZone: 'UTC',
+}).format(lastUpdated);
+
+const breadcrumbList = {
+	'@type': 'BreadcrumbList',
+	'@id': `${site.url}/privacy-policy/#breadcrumb`,
+	itemListElement: [
+		{
+			'@type': 'ListItem',
+			position: 1,
+			name: 'Home',
+			item: site.url,
+		},
+		{
+			'@type': 'ListItem',
+			position: 2,
+			name: 'Privacy Policy',
+			item: `${site.url}/privacy-policy/`,
+		},
+	],
+};
+---
+
+<Layout
+	title={`Privacy Policy — ${site.name}`}
+	description={`How ${site.name} processes personal data in compliance with the GDPR when you visit this website or contact us.`}
+	dateModified={privacy.lastUpdated}
+	jsonLd={breadcrumbList}
+>
+	<SiteHeader />
+
+	<main id="main" tabindex="-1">
+		<section class="section legal">
+			<div class="container">
+				<div class="legal-inner">
+					<p class="eyebrow">Legal</p>
+					<h1>Privacy Policy</h1>
+					<p class="lead">
+						This policy describes what personal data is processed when you visit this website or
+						contact us, on what legal basis, for how long, and what rights you have.
+					</p>
+
+					<dl class="legal-meta">
+						<div>
+							<dt>Controller</dt>
+							<dd>{company.legalName}</dd>
+						</div>
+						<div>
+							<dt>Company ID (IČO)</dt>
+							<dd>{company.companyId}</dd>
+						</div>
+						<div>
+							<dt>Registered seat</dt>
+							<dd>
+								{company.street}, {company.district}, {company.postalCode} {company.city}, {company.country}
+							</dd>
+						</div>
+						<div>
+							<dt>Contact</dt>
+							<dd><a href={`mailto:${site.email}`}>{site.email}</a></dd>
+						</div>
+					</dl>
+
+					<div class="legal-body">
+						<h2>1. What data is processed and why</h2>
+
+						<h3>Web hosting</h3>
+						<p>
+							The site is hosted by an external hosting provider. Each page load necessarily
+							generates operational data — in particular IP address, browser type and version,
+							access time and requested URL. These data serve solely for the technical operation
+							and security of the service; the controller does not access them in a form that
+							would allow tracking individual visitors. The controller does not control the
+							hosting provider's internal data handling and does not guarantee its practices;
+							these are governed by the provider's own terms and privacy policy. Details of the
+							provider are available on request.
+						</p>
+						<ul>
+							<li>
+								<strong>Legal basis:</strong> legitimate interest in the technical operation and
+								security of the service (Art. 6(1)(f) GDPR).
+							</li>
+							<li>
+								<strong>Third-country transfer:</strong> the hosting provider processes operational
+								data in the United States. Transfers rely on safeguards such as the EU–US Data
+								Privacy Framework and standard contractual clauses. Details are available on
+								request.
+							</li>
+						</ul>
+
+						<h3>Contacting us (e-mail)</h3>
+						<p>
+							If you write us an e-mail or use another contact channel listed on the site, we
+							process the data you provide in that contact — in particular your e-mail address,
+							name and the message content.
+						</p>
+						<ul>
+							<li>
+								<strong>Legal basis:</strong> steps prior to entering into a contract at your
+								request (Art. 6(1)(b) GDPR), or legitimate interest (Art. 6(1)(f) GDPR) for
+								answering enquiries.
+							</li>
+							<li>
+								<strong>Purpose:</strong> handling your enquiry and any related follow-up
+								communication.
+							</li>
+						</ul>
+
+						<h2 id="cookies">2. Cookies, local storage and third-party content</h2>
+						<p>
+							This website does not set cookies for analytics, advertising or tracking, and does
+							not use fingerprinting or any other technology aimed at identifying users or their
+							devices. We do not run active web analytics, so visits cannot be tracked or
+							profiled.
+						</p>
+						<p>
+							The site stores one preference in your browser's local storage. It is not a cookie,
+							contains no identifier, and is never sent to a server.
+						</p>
+						<dl class="legal-meta">
+							<div>
+								<dt>Key</dt>
+								<dd><code>{privacy.storageKey}</code></dd>
+							</div>
+							<div>
+								<dt>Purpose</dt>
+								<dd>Remembers that you dismissed the privacy notice.</dd>
+							</div>
+							<div>
+								<dt>Content</dt>
+								<dd>A version number and an expiry timestamp. No identifier.</dd>
+							</div>
+							<div>
+								<dt>Duration</dt>
+								<dd>
+									{noticeDaysLabel}, after which the notice is shown again; or until you clear
+									site data.
+								</dd>
+							</div>
+							<div>
+								<dt>Transmission</dt>
+								<dd>Stored locally and never sent to any server.</dd>
+							</div>
+							<div>
+								<dt>Legal basis</dt>
+								<dd>
+									Strictly necessary storage for the interface preference you requested by
+									dismissing the notice (Art. 5(3) ePrivacy Directive). No consent is required.
+								</dd>
+							</div>
+						</dl>
+						<p>
+							You can delete this preference at any time through your browser's site-data
+							settings.
+						</p>
+						<p>
+							The contact section embeds a map from OpenStreetMap. The map is lazily loaded when
+							the contact section approaches the viewport; loading it transmits your IP address
+							and browser information to the OpenStreetMap Foundation so the map can be
+							displayed. Its privacy policy applies:
+							<a href="https://osmfoundation.org/wiki/Privacy_Policy" target="_blank" rel="noopener noreferrer">
+								OSMF Privacy Policy
+							</a>. <strong>Legal basis:</strong> legitimate interest in displaying the location
+							map (Art. 6(1)(f) GDPR).
+						</p>
+						<p>
+							Other than the OpenStreetMap embed, the site loads no third-party scripts or fonts
+							from external servers.
+						</p>
+
+						<h2>3. Data retention</h2>
+						<ul>
+							<li>
+								<strong>Hosting operational data:</strong> retained by the hosting provider
+								according to its terms and internal policies (typically only as long as necessary
+								for operation and security).
+							</li>
+							<li>
+								<strong>Correspondence from the contact channel:</strong> for the duration of
+								handling your enquiry and thereafter only as necessary; max. {privacy.retentionPeriod}.
+							</li>
+						</ul>
+
+						<h2>4. Your rights</h2>
+						<p>
+							You have the right of access, rectification, erasure, restriction of processing,
+							portability, and the right to object to processing based on legitimate interest.
+							Exercise them at <a href={`mailto:${site.email}`}>{site.email}</a>.
+						</p>
+						<p>
+							You also have the right to lodge a complaint with the supervisory authority — the
+							Czech Office for Personal Data Protection (Úřad pro ochranu osobních údajů), Pplk.
+							Sochora 27, 170 00 Prague 7,
+							<a href="https://www.uoou.cz" target="_blank" rel="noopener noreferrer">www.uoou.cz</a>.
+						</p>
+
+						<h2>5. Security</h2>
+						<p>
+							The site is static and processes no data on its own server side. Communication is
+							encrypted (HTTPS). Data from contact channels is stored in our e-mail systems,
+							accessible only to authorised personnel.
+						</p>
+
+						<h2>6. Changes to this policy</h2>
+						<p>
+							We may update this policy; the version published on this page is always the current
+							one.
+						</p>
+					</div>
+
+					<p class="legal-updated">
+						Last updated: <time datetime={privacy.lastUpdated}>{lastUpdatedLabel}</time>
+					</p>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<SiteFooter />
+</Layout>

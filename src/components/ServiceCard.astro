@@ -1,15 +1,38 @@
 ---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
 interface Props {
 	index: string;
 	title: string;
 	description: string;
 	delay?: number;
+	image?: {
+		src: ImageMetadata;
+		alt: string;
+		label?: string;
+	};
 }
 
-const { index, title, description, delay = 0 } = Astro.props;
+const { index, title, description, delay = 0, image } = Astro.props;
 ---
 
-<article class="card" data-reveal style={`--reveal-delay: ${delay}ms`}>
+<article class:list={['card', { 'card--media': image }]} data-reveal style={`--reveal-delay: ${delay}ms`}>
+	{
+		image && (
+			<figure class="card-media">
+				<Image
+					src={image.src}
+					alt={image.alt}
+					widths={[400, 800]}
+					sizes="(min-width: 1100px) 22rem, (min-width: 700px) 45vw, 92vw"
+					loading="lazy"
+					decoding="async"
+				/>
+				{image.label && <figcaption class="card-media-label">{image.label}</figcaption>}
+			</figure>
+		)
+	}
 	<span class="card-index">{index}</span>
 	<h3>{title}</h3>
 	<p>{description}</p>

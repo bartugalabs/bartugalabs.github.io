@@ -1,4 +1,5 @@
 ---
+import ProtonWordmark from '../assets/proton-wordmark-dark.svg';
 import SectionHeading from './SectionHeading.astro';
 import { site } from '../data/site';
 
@@ -6,7 +7,7 @@ const { contact, company } = site;
 const { emails, protonBadge } = contact;
 ---
 
-<section class="section" id="contact" aria-labelledby="contact-title">
+<section class="section" id="contact" aria-labelledby="contact-title" tabindex="-1">
 	<div class="container">
 		<div class="contact-panel">
 			<div>
@@ -21,12 +22,12 @@ const { emails, protonBadge } = contact;
 					<iframe
 						class="contact-map-iframe"
 						src={company.map.embedUrl}
-						title="OpenStreetMap location for {company.legalName}"
+						title={`OpenStreetMap location for ${company.legalName}`}
 						loading="lazy"
 						referrerpolicy="no-referrer"
 					></iframe>
 					<a class="contact-map-link" href={company.map.link} target="_blank" rel="noopener noreferrer">
-						View larger map&nbsp;&#8599;
+						View larger map&nbsp;<span aria-hidden="true">&#8599;</span>
 					</a>
 				</div>
 			</div>
@@ -56,28 +57,28 @@ const { emails, protonBadge } = contact;
 
 					<a class="proton-badge" href={protonBadge.href} target="_blank" rel="noopener noreferrer">
 						<span class="proton-badge-label">{protonBadge.label}</span>
-						<img
+						<ProtonWordmark
 							class="proton-badge-logo"
-							src={protonBadge.logo}
-							alt={protonBadge.logoAlt}
 							width="99"
 							height="32"
-							loading="lazy"
+							role="img"
+							aria-label={protonBadge.logoAlt}
 						/>
 					</a>
 				</div>
 
 				<address class="contact-address">
 					<strong>{company.legalName}</strong>
-					<span>{company.street}</span>
+					<span>{company.street}, {company.district}</span>
 					<span>{company.postalCode} {company.city}</span>
 					<span>{company.country}</span>
 					<a href={company.map.link} target="_blank" rel="noopener noreferrer">
-						Open in OpenStreetMap&nbsp;&#8599;
+						Open in OpenStreetMap&nbsp;<span aria-hidden="true">&#8599;</span>
 					</a>
 				</address>
 
-				<p class="contact-vat">{company.vatLabel}: {company.vatId}</p>
+				<p class="contact-vat">Company ID (IČO): {company.companyId}</p>
+				{company.vatId && <p class="contact-vat">{company.vatLabel}: {company.vatId}</p>}
 
 				<dl class="contact-meta">
 					{

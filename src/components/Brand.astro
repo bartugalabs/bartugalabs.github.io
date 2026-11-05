@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets';
+import logo from '../assets/logo.webp';
 import { site } from '../data/site';
 
 interface Props {
@@ -9,11 +11,5 @@ const { href = '#top' } = Astro.props;
 ---
 
 <a class="brand" href={href} aria-label={`${site.name} — home`}>
-	<svg width="26" height="26" viewBox="0 0 26 26" fill="none" aria-hidden="true">
-		<circle cx="13" cy="13" r="11.25" stroke="#284752" stroke-width="1.5"></circle>
-		<circle cx="13" cy="13" r="5.75" stroke="#36AAC5" stroke-width="1.5"></circle>
-		<path d="M13 1.75v22.5M1.75 13h22.5" stroke="#284752" stroke-width="1"></path>
-		<circle cx="13" cy="13" r="2" fill="#36AAC5"></circle>
-	</svg>
-	<span>{site.name.toLowerCase()}</span>
+	<Image src={logo} alt="" width={221} height={26} densities={[1, 2]} priority />
 </a>

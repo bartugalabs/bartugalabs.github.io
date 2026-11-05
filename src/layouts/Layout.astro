@@ -1,40 +1,155 @@
 ---
 import { Font } from 'astro:assets';
 import '../styles/global.css';
+import PrivacyNotice from '../components/PrivacyNotice.astro';
 import { site } from '../data/site';
 
 interface Props {
 	title?: string;
 	description?: string;
+	robots?: string;
+	jsonLd?: Record<string, unknown>;
+	dateModified?: string;
 }
 
 const {
-	title = `${site.name} — Cybersecurity, Pentesting & Geointelligence`,
+	title = `${site.name} — Cybersecurity, Pentesting & Geospatial Intelligence`,
 	description = site.description,
+	robots = 'index, follow',
+	jsonLd: extraJsonLd,
+	dateModified,
 } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, Astro.site ?? site.url);
+const ogImage = new URL('/og-image.png', site.url);
+const ogImageAlt = `${site.name} — cybersecurity, pentesting and geospatial intelligence`;
 
 const { company } = site;
 
-const organisation = {
-	'@context': 'https://schema.org',
-	'@type': 'Organization',
-	name: site.name,
-	legalName: company.legalName,
-	url: site.url,
-	email: site.email,
-	description: site.description,
-	sameAs: [site.github],
-	vatID: company.vatId,
-	address: {
-		'@type': 'PostalAddress',
-		streetAddress: company.street,
-		postalCode: company.postalCode,
-		addressLocality: company.city,
-		addressCountry: company.countryCode,
+const logoUrl = new URL('/icon-512.png', site.url);
+const isHome = Astro.url.pathname === '/';
+
+const graph = [
+	{
+		'@type': 'Organization',
+		'@id': `${site.url}#organization`,
+		name: site.name,
+		legalName: company.legalName,
+		url: site.url,
+		email: site.email,
+		description: site.description,
+		slogan: site.tagline,
+		logo: {
+			'@type': 'ImageObject',
+			url: logoUrl,
+			width: 512,
+			height: 512,
+		},
+		image: ogImage,
+		sameAs: [site.github],
+		identifier: {
+			'@type': 'PropertyValue',
+			propertyID: 'IČO',
+			value: company.companyId,
+		},
+		...(company.vatId
+			? {
+					vatID: company.vatId,
+				}
+			: {}),
+		address: {
+			'@type': 'PostalAddress',
+			streetAddress: `${company.street}, ${company.district}`,
+			postalCode: company.postalCode,
+			addressLocality: company.city,
+			addressCountry: company.countryCode,
+		},
+		geo: {
+			'@type': 'GeoCoordinates',
+			latitude: 50.07782,
+			longitude: 14.42282,
+		},
+		areaServed: [
+			{ '@type': 'Country', name: 'Czech Republic' },
+			{ '@type': 'Continent', name: 'Europe' },
+		],
+		contactPoint: [
+			{
+				'@type': 'ContactPoint',
+				contactType: 'sales',
+				email: site.email,
+				availableLanguage: ['English', 'Czech'],
+			},
+		],
+		knowsAbout: [
+			'Cybersecurity',
+			'Penetration testing',
+			'Geospatial intelligence',
+			'Information security',
+			'GIS analysis',
+			'Remote sensing',
+		],
 	},
-};
+	{
+		'@type': 'WebSite',
+		'@id': `${site.url}#website`,
+		url: site.url,
+		name: site.name,
+		description: site.description,
+		publisher: { '@id': `${site.url}#organization` },
+		inLanguage: 'en-GB',
+	},
+	{
+		'@type': 'WebPage',
+		'@id': `${canonical}#webpage`,
+		url: canonical,
+		name: title,
+		description: description,
+		isPartOf: { '@id': `${site.url}#website` },
+		about: { '@id': `${site.url}#organization` },
+		primaryImageOfPage: {
+			'@type': 'ImageObject',
+			url: ogImage,
+		},
+		...(dateModified ? { dateModified } : {}),
+		...(isHome
+			? {
+					mainEntity: {
+						'@type': 'ItemList',
+						itemListElement: [
+							{
+								'@type': 'Service',
+								name: 'Cybersecurity',
+								description: site.cybersecurity.title,
+								provider: { '@id': `${site.url}#organization` },
+								areaServed: 'EU',
+							},
+							{
+								'@type': 'Service',
+								name: 'Penetration testing',
+								description: site.pentesting.title,
+								provider: { '@id': `${site.url}#organization` },
+								areaServed: 'EU',
+							},
+							{
+								'@type': 'Service',
+								name: 'Geointelligence',
+								description: site.geointelligence.title,
+								provider: { '@id': `${site.url}#organization` },
+								areaServed: 'EU',
+							},
+						],
+					},
+				}
+			: {}),
+	},
+];
+
+if (extraJsonLd) {
+	graph.push(extraJsonLd);
+}
+
+const graphLd = { '@context': 'https://schema.org', '@graph': graph };
 ---
 
 <!doctype html>
@@ -44,21 +159,37 @@ const organisation = {
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<title>{title}</title>
 		<meta name="description" content={description} />
+		<meta name="robots" content={robots} />
+		<meta name="referrer" content="strict-origin-when-cross-origin" />
 		<link rel="canonical" href={canonical} />
+		<meta name="author" content={company.legalName} />
 		<meta name="theme-color" content="#08151D" />
 		<meta name="color-scheme" content="dark" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" sizes="any" />
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
+		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+		<link rel="manifest" href="/site.webmanifest" />
+		<link rel="sitemap" type="application/xml" href="/sitemap-index.xml" />
 		<meta name="generator" content={Astro.generator} />
 
 		<meta property="og:type" content="website" />
 		<meta property="og:site_name" content={site.name} />
+		<meta property="og:locale" content="en_GB" />
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
 		<meta property="og:url" content={canonical} />
-		<meta name="twitter:card" content="summary" />
+		<meta property="og:image" content={ogImage} />
+		<meta property="og:image:secure_url" content={ogImage} />
+		<meta property="og:image:type" content="image/png" />
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="630" />
+		<meta property="og:image:alt" content={ogImageAlt} />
+		<meta name="twitter:card" content="summary_large_image" />
 		<meta name="twitter:title" content={title} />
 		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content={ogImage} />
+		<meta name="twitter:image:alt" content={ogImageAlt} />
 
 		<Font cssVariable="--font-heading" preload={[{ weight: 600, subset: 'latin' }]} />
 		<Font cssVariable="--font-body" preload={[{ weight: 400, subset: 'latin' }]} />
@@ -78,11 +209,12 @@ const organisation = {
 				}, 1200);
 			});
 		</script>
-		<script type="application/ld+json" set:html={JSON.stringify(organisation)} />
+		<script type="application/ld+json" set:html={JSON.stringify(graphLd)} />
 	</head>
-	<body id="top">
+	<body id="top" tabindex="-1">
 		<a class="skip-link" href="#main">Skip to content</a>
 		<slot />
+		<PrivacyNotice />
 		<script>
 			const reveals = document.querySelectorAll<HTMLElement>('[data-reveal]');
 			const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -106,27 +238,6 @@ const organisation = {
 			}
 
 			document.documentElement.classList.add('reveal-ready');
-
-			// Smooth scrolling for same-page anchor links (nav, back-to-top, hero CTAs).
-			document.addEventListener('click', (event) => {
-				const link = (event.target as HTMLElement).closest<HTMLAnchorElement>('a[href^="#"]');
-				if (!link) return;
-				// The skip-link needs native jump + focus behaviour for accessibility.
-				if (link.matches('.skip-link')) return;
-				if (event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
-
-				const href = link.getAttribute('href');
-				if (!href || href === '#') return;
-				const target = document.getElementById(href.slice(1));
-				if (!target) return;
-
-				event.preventDefault();
-				target.scrollIntoView({
-					behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
-					block: 'start',
-				});
-				if (location.hash !== href) history.pushState(null, '', href);
-			});
 		</script>
 	</body>
 </html>

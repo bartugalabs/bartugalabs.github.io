@@ -1,18 +1,21 @@
 ---
 import Brand from './Brand.astro';
 import { site } from '../data/site';
+
+const isHome = Astro.url.pathname === '/';
+const sectionHref = (href: string) => (isHome ? href : `/${href}`);
 ---
 
 <header class="site-header">
 	<div class="container header-inner">
-		<Brand />
+		<Brand href={isHome ? '#top' : '/'} />
 
 		<nav class="nav" aria-label="Primary">
 			<ul class="nav-links">
 				{
 					site.nav.map((item) => (
 						<li>
-							<a href={item.href}>{item.label}</a>
+							<a href={sectionHref(item.href)}>{item.label}</a>
 						</li>
 					))
 				}
@@ -39,7 +42,7 @@ import { site } from '../data/site';
 		<nav class="container" aria-label="Mobile">
 			{
 				site.nav.map((item) => (
-					<a href={item.href}>{item.label}</a>
+					<a href={sectionHref(item.href)}>{item.label}</a>
 				))
 			}
 			<a class="button-primary" href={site.contactHref}>Talk to us</a>
