@@ -2,8 +2,29 @@
 import SectionHeading from './SectionHeading.astro';
 import ServiceCard from './ServiceCard.astro';
 import { site } from '../data/site';
+import austria from '../assets/austria.webp';
+import france from '../assets/france.webp';
+import greece from '../assets/greece.webp';
 
 const { geointelligence } = site;
+
+const media = [
+	{
+		src: france,
+		alt: 'Sentinel-2 true-colour satellite view of the French Mediterranean coast',
+		label: 'Sentinel-2 · True colour',
+	},
+	{
+		src: austria,
+		alt: 'Sentinel-1 radar image of Alpine terrain in Austria',
+		label: 'Sentinel-1 · SAR',
+	},
+	{
+		src: greece,
+		alt: 'Copernicus digital elevation model of terrain in Greece',
+		label: 'Copernicus DEM',
+	},
+];
 ---
 
 <section class="section" id="geointelligence" aria-labelledby="geointelligence-title" tabindex="-1">
@@ -23,6 +44,7 @@ const { geointelligence } = site;
 						title={service.title}
 						description={service.description}
 						delay={index * 80}
+						image={media[index]}
 					/>
 				))
 			}
