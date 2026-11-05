@@ -13,11 +13,32 @@ const lastUpdatedLabel = new Intl.DateTimeFormat('en-GB', {
 	year: 'numeric',
 	timeZone: 'UTC',
 }).format(lastUpdated);
+
+const breadcrumbList = {
+	'@type': 'BreadcrumbList',
+	'@id': `${site.url}/privacy-policy/#breadcrumb`,
+	itemListElement: [
+		{
+			'@type': 'ListItem',
+			position: 1,
+			name: 'Home',
+			item: site.url,
+		},
+		{
+			'@type': 'ListItem',
+			position: 2,
+			name: 'Privacy Policy',
+			item: `${site.url}/privacy-policy/`,
+		},
+	],
+};
 ---
 
 <Layout
 	title={`Privacy Policy — ${site.name}`}
-	description={`How ${site.name} processes personal data when you visit this website or contact us.`}
+	description={`How ${site.name} processes personal data in compliance with the GDPR when you visit this website or contact us.`}
+	dateModified={privacy.lastUpdated}
+	jsonLd={breadcrumbList}
 >
 	<SiteHeader />
 

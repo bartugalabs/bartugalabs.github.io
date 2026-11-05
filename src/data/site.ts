@@ -60,9 +60,9 @@ const githubUrl = 'https://github.com/bartugalabs';
 
 export const site = {
 	name: 'Bartuga',
-	url: 'https://bartugalabs.github.io',
+	url: 'https://bartuga.com',
 	description:
-		'Bartuga delivers cybersecurity assessments, authorised penetration testing and geospatial intelligence — helping organisations defend their systems and act on spatial data.',
+		'Bartuga provides cybersecurity assessments, penetration testing and geospatial intelligence from Prague for organisations across the EU and worldwide.',
 	email: 'port@bartuga.com',
 	contactHref: 'mailto:port@bartuga.com?subject=Project%20enquiry',
 	github: githubUrl,
@@ -105,7 +105,7 @@ export const site = {
 
 	hero: {
 		eyebrow: 'Cybersecurity · Pentesting · Geointelligence',
-		titleLead: 'Security and ',
+		titleLead: 'Cybersecurity, pentesting and ',
 		titleAccent: 'spatial intelligence',
 		titleTail: '',
 		lead: 'We defend systems, test resilience, and turn spatial data into decisions.',
@@ -139,7 +139,7 @@ export const site = {
 
 	cybersecurity: {
 		eyebrow: '01 — Cybersecurity',
-		title: 'Defence that holds',
+		title: 'Cybersecurity that holds',
 		lead: 'Independent reviews for teams that need to know where they stand, and a practical path to closing the gaps.',
 		services: [
 			{
@@ -167,7 +167,7 @@ export const site = {
 
 	pentesting: {
 		eyebrow: '02 — Pentesting',
-		title: 'Proof over promises',
+		title: 'Pentesting: proof over promises',
 		lead: 'Simulated attacks against your live systems, so you learn what an adversary would find before they do.',
 		steps: [
 			{
@@ -202,7 +202,7 @@ export const site = {
 
 	geointelligence: {
 		eyebrow: '03 — Geointelligence',
-		title: 'Terrain, made legible',
+		title: 'Geointelligence: terrain, made legible',
 		lead: 'We turn scattered location data into answers you can stand behind.',
 		services: [
 			{

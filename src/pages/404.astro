@@ -1,0 +1,39 @@
+---
+import Contact from '../components/Contact.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+	title="Page not found — Bartuga"
+	description="The page you are looking for does not exist. Return to the Bartuga homepage."
+	robots="noindex, follow"
+>
+	<SiteHeader />
+
+	<main id="main" tabindex="-1">
+		<section class="section">
+			<div class="container not-found">
+				<p class="eyebrow">404</p>
+				<h1>Page not found</h1>
+				<p class="lead not-found-lead">
+					The page you are looking for does not exist or has been moved.
+				</p>
+				<a class="button-primary" href="/">
+					Back to homepage
+					<svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+						<path
+							d="M3 8h10M9 4l4 4-4 4"
+							stroke="currentColor"
+							stroke-width="1.5"
+							stroke-linecap="round"
+							stroke-linejoin="round"></path>
+					</svg>
+				</a>
+			</div>
+		</section>
+	</main>
+
+	<SiteFooter />
+</Layout>

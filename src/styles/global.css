@@ -1491,3 +1491,13 @@ a:hover {
 		transform: none;
 	}
 }
+
+/* 404 page */
+.not-found {
+	text-align: center;
+	padding-block: 6rem 4rem;
+}
+
+.not-found-lead {
+	margin-block-end: 2rem;
+}

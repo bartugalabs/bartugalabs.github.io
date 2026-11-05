@@ -1,6 +1,6 @@
 # Bartuga
 
-Minimal landing page for [bartugalabs.github.io](https://bartugalabs.github.io), built with
+Minimal landing page for [bartuga.com](https://bartuga.com), built with
 [Astro](https://astro.build).
 
 ## Europe hero visual
