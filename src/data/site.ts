@@ -72,6 +72,8 @@ export const site = {
 	company: {
 		legalName: 'Bartuga Labs s.r.o.',
 		companyId: '30194822',
+		vatId: 'CZ30194822',
+		vatLabel: 'VAT ID (DIČ)',
 		street: 'Příčná 1892/4',
 		district: 'Nové Město',
 		postalCode: '110 00',
@@ -92,7 +94,7 @@ export const site = {
 		// Bump when this policy changes materially so the notice is shown again.
 		storageVersion: 1,
 		noticeDays: 30,
-		lastUpdated: '2026-11-04',
+		lastUpdated: '2026-11-08',
 		retentionPeriod: '[PERIOD, e.g. 2 years]',
 	},
 
