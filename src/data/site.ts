@@ -40,8 +40,6 @@ export interface CompanyInfo {
 	city: string;
 	country: string;
 	countryCode: string;
-	vatId?: string;
-	vatLabel?: string;
 	map: {
 		embedUrl: string;
 		link: string;
@@ -72,8 +70,6 @@ export const site = {
 	company: {
 		legalName: 'Bartuga Labs s.r.o.',
 		companyId: '30194822',
-		vatId: 'CZ30194822',
-		vatLabel: 'VAT ID (DIČ)',
 		street: 'Příčná 1892/4',
 		district: 'Nové Město',
 		postalCode: '110 00',
