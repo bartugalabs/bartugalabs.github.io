@@ -52,11 +52,6 @@ const graph = [
 			propertyID: 'IČO',
 			value: company.companyId,
 		},
-		...(company.vatId
-			? {
-					vatID: company.vatId,
-				}
-			: {}),
 		address: {
 			'@type': 'PostalAddress',
 			streetAddress: `${company.street}, ${company.district}`,
