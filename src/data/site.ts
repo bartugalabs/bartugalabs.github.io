@@ -60,7 +60,7 @@ export const site = {
 	name: 'Bartuga',
 	url: 'https://bartuga.com',
 	description:
-		'Bartuga provides cybersecurity assessments, penetration testing and geospatial intelligence from Prague for organisations across the EU and worldwide.',
+		'Bartuga provides cybersecurity assessments, penetration testing, AI agent security and geospatial intelligence from Prague for organisations across the EU and worldwide.',
 	email: 'port@bartuga.com',
 	contactHref: 'mailto:port@bartuga.com?subject=Project%20enquiry',
 	github: githubUrl,
@@ -98,6 +98,7 @@ export const site = {
 		{ label: 'Cybersecurity', href: '#cybersecurity' },
 		{ label: 'Pentesting', href: '#pentesting' },
 		{ label: 'Geointelligence', href: '#geointelligence' },
+		{ label: 'Agent Security', href: '#agent-security' },
 		{ label: 'Contact', href: '#contact' },
 	] satisfies NavItem[],
 
@@ -222,8 +223,37 @@ export const site = {
 		useCases: ['Site suitability', 'Environmental monitoring', 'Infrastructure planning', 'Change detection'],
 	},
 
+	agentSecurity: {
+		eyebrow: '04 — AI Agent Security',
+		title: 'AI Agent Security: autonomy without blind trust',
+		lead: 'We assess and harden the environments your agents run in — containment, context handling and spend controls — before autonomy turns into an incident.',
+		services: [
+			{
+				title: 'Agent environment & isolation',
+				description:
+					'Review of sandbox boundaries, tool and network permissions, secret access and host isolation. We map what an agent can reach, then reduce the blast radius of a compromised or misbehaving run.',
+			},
+			{
+				title: 'Prompt & context privacy',
+				description:
+					'Trace how prompts, retrieved context and memory move through your stack. We verify zero-retention settings with model providers, find leakage paths, and tighten logging and data handling so sensitive context does not outlive the task.',
+			},
+			{
+				title: 'Budget protection',
+				description:
+					'Guardrails against runaway loops and unexpected spend: per-task and per-agent caps, approval thresholds, anomaly alerts and a tested kill switch, backed by an audit trail of what consumed the budget.',
+			},
+		] satisfies Service[],
+		outcomes: [
+			'Containment you can demonstrate',
+			'Zero-retention verified, not assumed',
+			'Hard limits on agent spend',
+		],
+		cta: 'Scope an assessment',
+	},
+
 	contact: {
-		eyebrow: '04 — Contact',
+		eyebrow: '05 — Contact',
 		title: "Tell us what's at stake",
 		copy: "Share the system, the question or the dataset you're working with. We'll respond with a clear next step — not a sales sequence.",
 		label: 'Start a conversation',
