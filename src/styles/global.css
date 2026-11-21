@@ -348,6 +348,7 @@ a:hover {
 	color: var(--text-muted);
 	font-size: 0.9rem;
 	text-decoration: none;
+	white-space: nowrap;
 	transition: color 0.2s var(--ease);
 }
 
@@ -358,6 +359,7 @@ a:hover {
 .header-cta {
 	padding: 0.55rem 1rem;
 	font-size: 0.88rem;
+	white-space: nowrap;
 }
 
 .nav-toggle {
@@ -1415,6 +1417,25 @@ a:hover {
 
 	.footer-brand {
 		grid-column: 1 / -1;
+	}
+}
+
+@media (max-width: 1000px) and (min-width: 861px) {
+	.nav {
+		gap: 0.9rem;
+	}
+
+	.nav-links {
+		gap: 0.75rem;
+	}
+
+	.nav-links a {
+		font-size: 0.84rem;
+	}
+
+	.header-cta {
+		padding-inline: 0.8rem;
+		font-size: 0.82rem;
 	}
 }
 

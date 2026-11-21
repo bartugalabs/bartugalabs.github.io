@@ -79,6 +79,7 @@ const graph = [
 		knowsAbout: [
 			'Cybersecurity',
 			'Penetration testing',
+			'AI agent security',
 			'Geospatial intelligence',
 			'Information security',
 			'GIS analysis',
@@ -130,6 +131,13 @@ const graph = [
 								'@type': 'Service',
 								name: 'Geointelligence',
 								description: site.geointelligence.title,
+								provider: { '@id': `${site.url}#organization` },
+								areaServed: 'EU',
+							},
+							{
+								'@type': 'Service',
+								name: 'AI Agent Security',
+								description: site.agentSecurity.title,
 								provider: { '@id': `${site.url}#organization` },
 								areaServed: 'EU',
 							},
