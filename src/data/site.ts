@@ -1,284 +1,284 @@
 export interface NavItem {
-	label: string;
-	href: string;
+  label: string;
+  href: string;
 }
 
 export interface Service {
-	title: string;
-	description: string;
+  title: string;
+  description: string;
 }
 
 export interface Step {
-	title: string;
-	description: string;
+  title: string;
+  description: string;
 }
 
 export interface ContactDetail {
-	label: string;
-	value: string;
+  label: string;
+  value: string;
 }
 
 export interface ContactEmail {
-	label: string;
-	address: string;
-	href: string;
-	provider?: 'proton';
+  label: string;
+  address: string;
+  href: string;
+  provider?: 'proton';
 }
 
 export interface ProtonBadge {
-	label: string;
-	href: string;
-	logoAlt: string;
+  label: string;
+  href: string;
+  logoAlt: string;
 }
 
 export interface CompanyInfo {
-	legalName: string;
-	companyId: string;
-	street: string;
-	district: string;
-	postalCode: string;
-	city: string;
-	country: string;
-	countryCode: string;
-	map: {
-		embedUrl: string;
-		link: string;
-		label: string;
-	};
+  legalName: string;
+  companyId: string;
+  street: string;
+  district: string;
+  postalCode: string;
+  city: string;
+  country: string;
+  countryCode: string;
+  map: {
+    embedUrl: string;
+    link: string;
+    label: string;
+  };
 }
 
 export interface Principle {
-	icon: 'eu' | 'retention' | 'opensource';
-	title: string;
-	description: string;
-	link?: { label: string; href: string };
+  icon: 'eu' | 'retention' | 'opensource';
+  title: string;
+  description: string;
+  link?: { label: string; href: string };
 }
 
 const githubUrl = 'https://github.com/bartugalabs';
 
 export const site = {
-	name: 'Bartuga',
-	url: 'https://bartuga.com',
-	description:
-		'Bartuga provides cybersecurity assessments, penetration testing, AI agent security and geospatial intelligence from Prague for organisations across the EU and worldwide.',
-	email: 'port@bartuga.com',
-	contactHref: 'mailto:port@bartuga.com?subject=Project%20enquiry',
-	github: githubUrl,
-	tagline:
-		'Cybersecurity, ethical hacking and geointelligence for organisations that need clarity.',
+  name: 'Bartuga',
+  url: 'https://bartuga.com',
+  description:
+    'Bartuga provides cybersecurity assessments, penetration testing, AI agent security and geospatial intelligence from Prague for organisations across the EU and worldwide.',
+  email: 'port@bartuga.com',
+  contactHref: 'mailto:port@bartuga.com?subject=Project%20enquiry',
+  github: githubUrl,
+  tagline:
+    'Cybersecurity, ethical hacking and geointelligence for organisations that need clarity.',
 
-	company: {
-		legalName: 'Bartuga Labs s.r.o.',
-		companyId: '30194822',
-		street: 'Příčná 1892/4',
-		district: 'Nové Město',
-		postalCode: '110 00',
-		city: 'Praha 1',
-		country: 'Czech Republic',
-		countryCode: 'CZ',
-		map: {
-			embedUrl:
-				'https://www.openstreetmap.org/export/embed.html?bbox=14.4128%2C50.0678%2C14.4328%2C50.0878&layer=mapnik&marker=50.0778198%2C14.4228188',
-			link: 'https://www.openstreetmap.org/?mlat=50.0778198&mlon=14.4228188#map=17/50.0778198/14.4228188',
-			label: 'Příčná 1892/4, Praha 1',
-		},
-	} satisfies CompanyInfo,
+  company: {
+    legalName: 'Bartuga Labs s.r.o.',
+    companyId: '30194822',
+    street: 'Příčná 1892/4',
+    district: 'Nové Město',
+    postalCode: '110 00',
+    city: 'Praha 1',
+    country: 'Czech Republic',
+    countryCode: 'CZ',
+    map: {
+      embedUrl:
+        'https://www.openstreetmap.org/export/embed.html?bbox=14.4128%2C50.0678%2C14.4328%2C50.0878&layer=mapnik&marker=50.0778198%2C14.4228188',
+      link: 'https://www.openstreetmap.org/?mlat=50.0778198&mlon=14.4228188#map=17/50.0778198/14.4228188',
+      label: 'Příčná 1892/4, Praha 1',
+    },
+  } satisfies CompanyInfo,
 
-	privacy: {
-		path: '/privacy-policy',
-		storageKey: 'bartuga.privacy',
-		// Bump when this policy changes materially so the notice is shown again.
-		storageVersion: 1,
-		noticeDays: 30,
-		lastUpdated: '2026-11-08',
-		retentionPeriod: '[PERIOD, e.g. 2 years]',
-	},
+  privacy: {
+    path: '/privacy-policy',
+    storageKey: 'bartuga.privacy',
+    // Bump when this policy changes materially so the notice is shown again.
+    storageVersion: 1,
+    noticeDays: 30,
+    lastUpdated: '2026-11-08',
+    retentionPeriod: '[PERIOD, e.g. 2 years]',
+  },
 
-	nav: [
-		{ label: 'Cybersecurity', href: '#cybersecurity' },
-		{ label: 'Pentesting', href: '#pentesting' },
-		{ label: 'Geointelligence', href: '#geointelligence' },
-		{ label: 'Agent Security', href: '#agent-security' },
-		{ label: 'Contact', href: '#contact' },
-	] satisfies NavItem[],
+  nav: [
+    { label: 'Cybersecurity', href: '#cybersecurity' },
+    { label: 'Pentesting', href: '#pentesting' },
+    { label: 'Geointelligence', href: '#geointelligence' },
+    { label: 'Agent Security', href: '#agent-security' },
+    { label: 'Contact', href: '#contact' },
+  ] satisfies NavItem[],
 
-	hero: {
-		eyebrow: 'Cybersecurity · Pentesting · Geointelligence',
-		titleLead: 'Cybersecurity, pentesting and ',
-		titleAccent: 'spatial intelligence',
-		titleTail: '',
-		lead: 'We defend systems, test resilience, and turn spatial data into decisions.',
-		primaryCta: 'Book a review',
-		secondaryCta: 'See capabilities',
-	},
+  hero: {
+    eyebrow: 'Cybersecurity · Pentesting · Geointelligence',
+    titleLead: 'Cybersecurity, pentesting and ',
+    titleAccent: 'spatial intelligence',
+    titleTail: '',
+    lead: 'We defend systems, test resilience, and turn spatial data into decisions.',
+    primaryCta: 'Book a review',
+    secondaryCta: 'See capabilities',
+  },
 
-	principles: {
-		eyebrow: 'Principles',
-		title: 'European by design, private by default',
-		lead: 'An EU-based team, zero retention by default, and open source at the core.',
-		items: [
-			{
-				icon: 'eu',
-				title: 'EU jurisdiction',
-				description: 'Data and engagements stay under EU law.',
-			},
-			{
-				icon: 'retention',
-				title: 'Zero retention',
-				description: 'Client data is deleted at close-out; exceptions are agreed in writing.',
-			},
-			{
-				icon: 'opensource',
-				title: 'Open source first',
-				description: 'Open standards and tooling, so nothing is a black box.',
-				link: { label: 'GitHub', href: githubUrl },
-			},
-		] satisfies Principle[],
-	},
+  principles: {
+    eyebrow: 'Principles',
+    title: 'European by design, private by default',
+    lead: 'An EU-based team, zero retention by default, and open source at the core.',
+    items: [
+      {
+        icon: 'eu',
+        title: 'EU jurisdiction',
+        description: 'Data and engagements stay under EU law.',
+      },
+      {
+        icon: 'retention',
+        title: 'Zero retention',
+        description: 'Client data is deleted at close-out; exceptions are agreed in writing.',
+      },
+      {
+        icon: 'opensource',
+        title: 'Open source first',
+        description: 'Open standards and tooling, so nothing is a black box.',
+        link: { label: 'GitHub', href: githubUrl },
+      },
+    ] satisfies Principle[],
+  },
 
-	cybersecurity: {
-		eyebrow: '01 — Cybersecurity',
-		title: 'Cybersecurity that holds',
-		lead: 'Independent reviews for teams that need to know where they stand, and a practical path to closing the gaps.',
-		services: [
-			{
-				title: 'Security assessments',
-				description:
-					'Structured reviews of infrastructure, applications and cloud configuration, prioritised by business impact rather than scanner noise.',
-			},
-			{
-				title: 'Hardening & architecture',
-				description:
-					'Practical remediation and design guidance for identity, network segmentation, logging and secrets management.',
-			},
-			{
-				title: 'Monitoring & response readiness',
-				description:
-					'Detection design, alert triage and incident playbooks, so the signal arrives before the damage does.',
-			},
-		] satisfies Service[],
-		outcomes: [
-			'Risk ranked by impact',
-			'Fixes your team can ship',
-			'Evidence you can audit',
-		],
-	},
+  cybersecurity: {
+    eyebrow: '01 — Cybersecurity',
+    title: 'Cybersecurity that holds',
+    lead: 'Independent reviews for teams that need to know where they stand, and a practical path to closing the gaps.',
+    services: [
+      {
+        title: 'Security assessments',
+        description:
+          'Structured reviews of infrastructure, applications and cloud configuration, prioritised by business impact rather than scanner noise.',
+      },
+      {
+        title: 'Hardening & architecture',
+        description:
+          'Practical remediation and design guidance for identity, network segmentation, logging and secrets management.',
+      },
+      {
+        title: 'Monitoring & response readiness',
+        description:
+          'Detection design, alert triage and incident playbooks, so the signal arrives before the damage does.',
+      },
+    ] satisfies Service[],
+    outcomes: [
+      'Risk ranked by impact',
+      'Fixes your team can ship',
+      'Evidence you can audit',
+    ],
+  },
 
-	pentesting: {
-		eyebrow: '02 — Pentesting',
-		title: 'Pentesting: proof over promises',
-		lead: 'Simulated attacks against your live systems, so you learn what an adversary would find before they do.',
-		steps: [
-			{
-				title: 'Scoping & rules of engagement',
-				description:
-					'We agree targets, boundaries, timing and escalation paths in writing before a single packet moves.',
-			},
-			{
-				title: 'Reconnaissance & threat modelling',
-				description:
-					'Mapping exposed assets, identities and trust paths to identify the scenarios most likely to succeed.',
-			},
-			{
-				title: 'Controlled exploitation',
-				description:
-					'Manual testing with guardrails, proving impact without disrupting production or exceeding scope.',
-			},
-			{
-				title: 'Reporting & remediation guidance',
-				description:
-					'Clear findings, reproducible evidence and prioritised fixes, with both technical detail and an executive summary.',
-			},
-			{
-				title: 'Retest & verification',
-				description:
-					'We confirm the fixes hold and provide a close-out record for auditors, customers and internal teams.',
-			},
-		] satisfies Step[],
-		note: 'Testing only with written authorisation, inside agreed boundaries, under confidentiality.',
-		cta: 'Scope an engagement',
-	},
+  pentesting: {
+    eyebrow: '02 — Pentesting',
+    title: 'Pentesting: proof over promises',
+    lead: 'Simulated attacks against your live systems, so you learn what an adversary would find before they do.',
+    steps: [
+      {
+        title: 'Scoping & rules of engagement',
+        description:
+          'We agree targets, boundaries, timing and escalation paths in writing before a single packet moves.',
+      },
+      {
+        title: 'Reconnaissance & threat modelling',
+        description:
+          'Mapping exposed assets, identities and trust paths to identify the scenarios most likely to succeed.',
+      },
+      {
+        title: 'Controlled exploitation',
+        description:
+          'Manual testing with guardrails, proving impact without disrupting production or exceeding scope.',
+      },
+      {
+        title: 'Reporting & remediation guidance',
+        description:
+          'Clear findings, reproducible evidence and prioritised fixes, with both technical detail and an executive summary.',
+      },
+      {
+        title: 'Retest & verification',
+        description:
+          'We confirm the fixes hold and provide a close-out record for auditors, customers and internal teams.',
+      },
+    ] satisfies Step[],
+    note: 'Testing only with written authorisation, inside agreed boundaries, under confidentiality.',
+    cta: 'Scope an engagement',
+  },
 
-	geointelligence: {
-		eyebrow: '03 — Geointelligence',
-		title: 'Geointelligence: terrain, made legible',
-		lead: 'We turn scattered location data into answers you can stand behind.',
-		services: [
-			{
-				title: 'GIS analysis & mapping',
-				description:
-					'Layered analysis, suitability modelling and cartography that make complex terrain legible.',
-			},
-			{
-				title: 'Remote sensing & imagery',
-				description:
-					'Optical and radar imagery processing for change detection, monitoring and site assessment.',
-			},
-			{
-				title: 'Spatial data pipelines',
-				description:
-					'Reproducible ingestion, validation and delivery of geospatial data across your stack.',
-			},
-		] satisfies Service[],
-		useCases: ['Site suitability', 'Environmental monitoring', 'Infrastructure planning', 'Change detection'],
-	},
+  geointelligence: {
+    eyebrow: '03 — Geointelligence',
+    title: 'Geointelligence: terrain, made legible',
+    lead: 'We turn scattered location data into answers you can stand behind.',
+    services: [
+      {
+        title: 'GIS analysis & mapping',
+        description:
+          'Layered analysis, suitability modelling and cartography that make complex terrain legible.',
+      },
+      {
+        title: 'Remote sensing & imagery',
+        description:
+          'Optical and radar imagery processing for change detection, monitoring and site assessment.',
+      },
+      {
+        title: 'Spatial data pipelines',
+        description:
+          'Reproducible ingestion, validation and delivery of geospatial data across your stack.',
+      },
+    ] satisfies Service[],
+    useCases: ['Site suitability', 'Environmental monitoring', 'Infrastructure planning', 'Change detection'],
+  },
 
-	agentSecurity: {
-		eyebrow: '04 — AI Agent Security',
-		title: 'AI Agent Security: autonomy without blind trust',
-		lead: 'We assess and harden the environments your agents run in — containment, context handling and spend controls — before autonomy turns into an incident.',
-		services: [
-			{
-				title: 'Agent environment & isolation',
-				description:
-					'Review of sandbox boundaries, tool and network permissions, secret access and host isolation. We map what an agent can reach, then reduce the blast radius of a compromised or misbehaving run.',
-			},
-			{
-				title: 'Prompt & context privacy',
-				description:
-					'Trace how prompts, retrieved context and memory move through your stack. We verify zero-retention settings with model providers, find leakage paths, and tighten logging and data handling so sensitive context does not outlive the task.',
-			},
-			{
-				title: 'Budget protection',
-				description:
-					'Guardrails against runaway loops and unexpected spend: per-task and per-agent caps, approval thresholds, anomaly alerts and a tested kill switch, backed by an audit trail of what consumed the budget.',
-			},
-		] satisfies Service[],
-		outcomes: [
-			'Containment you can demonstrate',
-			'Zero-retention verified, not assumed',
-			'Hard limits on agent spend',
-		],
-		cta: 'Scope an assessment',
-	},
+  agentSecurity: {
+    eyebrow: '04 — AI Agent Security',
+    title: 'AI Security: autonomy without blind trust',
+    lead: 'We harden the environments agents run in — containment, context handling and spend controls — before autonomy turns into an incident.',
+    services: [
+      {
+        title: 'Agent environment & isolation',
+        description:
+          'Review of sandbox boundaries, tool and network permissions, secret access and host isolation. We map what an agent can reach, then reduce the blast radius of a compromised or misbehaving run.',
+      },
+      {
+        title: 'Prompt & context privacy',
+        description:
+          'Trace how prompts, retrieved context and memory move through your stack. We verify zero-retention settings with model providers, find leakage paths, and tighten logging and data handling so sensitive context does not outlive the task.',
+      },
+      {
+        title: 'Budget protection',
+        description:
+          'Guardrails against runaway loops and unexpected spend: per-task and per-agent caps, approval thresholds, anomaly alerts and a tested kill switch, backed by an audit trail of what consumed the budget.',
+      },
+    ] satisfies Service[],
+    outcomes: [
+      'Containment you can demonstrate',
+      'Zero-retention verified, not assumed',
+      'Hard limits on agent spend',
+    ],
+    cta: 'Scope an assessment',
+  },
 
-	contact: {
-		eyebrow: '05 — Contact',
-		title: "Tell us what's at stake",
-		copy: "Share the system, the question or the dataset you're working with. We'll respond with a clear next step — not a sales sequence.",
-		label: 'Start a conversation',
-		emails: [
-			{
-				label: 'General enquiries',
-				address: 'port@bartuga.com',
-				href: 'mailto:port@bartuga.com?subject=Project%20enquiry',
-			},
-			{
-				label: 'Proton Mail',
-				address: 'bartuga@proton.me',
-				href: 'mailto:bartuga@proton.me?subject=Project%20enquiry',
-				provider: 'proton',
-			},
-		] satisfies ContactEmail[],
-		protonBadge: {
-			label: 'Powered by',
-			href: 'https://proton.me/mail',
-			logoAlt: 'Proton',
-		} satisfies ProtonBadge,
-		details: [
-			{ label: 'Response time', value: 'Within two business days' },
-			{ label: 'Engagements', value: 'Remote worldwide · on-site by arrangement' },
-			{ label: 'Confidentiality', value: 'NDA available on request' },
-		] satisfies ContactDetail[],
-	},
+  contact: {
+    eyebrow: '05 — Contact',
+    title: "Tell us what's at stake",
+    copy: "Share the system, the question or the dataset you're working with. We'll respond with a clear next step — not a sales sequence.",
+    label: 'Start a conversation',
+    emails: [
+      {
+        label: 'General enquiries',
+        address: 'port@bartuga.com',
+        href: 'mailto:port@bartuga.com?subject=Project%20enquiry',
+      },
+      {
+        label: 'Proton Mail',
+        address: 'bartuga@proton.me',
+        href: 'mailto:bartuga@proton.me?subject=Project%20enquiry',
+        provider: 'proton',
+      },
+    ] satisfies ContactEmail[],
+    protonBadge: {
+      label: 'Powered by',
+      href: 'https://proton.me/mail',
+      logoAlt: 'Proton',
+    } satisfies ProtonBadge,
+    details: [
+      { label: 'Response time', value: 'Within two business days' },
+      { label: 'Engagements', value: 'Remote worldwide · on-site by arrangement' },
+      { label: 'Confidentiality', value: 'NDA available on request' },
+    ] satisfies ContactDetail[],
+  },
 } as const;
